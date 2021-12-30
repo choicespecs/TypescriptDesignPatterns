@@ -39,11 +39,6 @@ class BankPayment {
         }
     }
 }
-class NoPayment {
-    pay(user) {
-        return user.getAmount;
-    }
-}
 class User {
     constructor(amount, securityCode, password) {
         this.amount = amount;

@@ -41,12 +41,6 @@ class BankPayment implements Payment {
   }
 }
 
-class NoPayment implements Payment {
-  pay(user: User) {
-    return user.getAmount;
-  }
-}
-
 class User {
   constructor(
     private amount: number,
