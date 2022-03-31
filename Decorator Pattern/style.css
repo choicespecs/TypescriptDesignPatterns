@@ -76,10 +76,16 @@ section {
   background-color: var(--color-four);
   height: 100px;
   border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
 .active {
   opacity: 1;
+  cursor: pointer;
+}
+
+.tab.active:hover {
+  transform: scale(1.1);
 }
 
 .not-active {
