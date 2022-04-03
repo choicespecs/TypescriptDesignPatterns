@@ -17,13 +17,13 @@ _Strategy_ Pattern is used for more methods, behaviors, and algorithms that are 
 
 ## Definitions
 
-Strategy
+**Strategy**
 : declares an interface common to ALL supposed algorithms. Context uses this interface to call the alogirthm defined by a ConcreteStrategy
 
-ConcreteStrategy
+**ConcreteStrategy**
 : implements the algorithm using the Strategy interface
 
-Context
+**Context**
 : is configued with a ConcreteStrategy object, maintains a reference to a Strategy object, and may define an interface that lets strategy access its data
 
 ## Consequences
@@ -41,4 +41,3 @@ Context
 6. _Communication overhead between Strategy and Context_
    : Since the strategy interface is shared between ALL concrete implementations. There can be scenarios or situations where you may not utilize or implement parameter, methods, or variables within the interface itself. THus this may require tighter coupling between Strategy and Context
 7. _Increased number of objects_
-
