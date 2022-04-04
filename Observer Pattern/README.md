@@ -1,6 +1,6 @@
 # Observer Pattern
 
-> One-to-many depency so when one object changes state all dependents are notified.
+> One-to-many dependency so when one object changes state all dependents are notified.
 
 [Observer Pattern Video](https://youtu.be/L7Z0OSQAUZc)
 
