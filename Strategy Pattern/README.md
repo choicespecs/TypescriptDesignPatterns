@@ -1,6 +1,6 @@
 # Strategy Pattern
 
-> Separating what changes from what stays the same.
+> Defines a family of algorithms, encapsulate each one, and make them interchangable.
 
 [Strategy Pattern Video](https://youtu.be/KGcw4Lq_p5k)
 
