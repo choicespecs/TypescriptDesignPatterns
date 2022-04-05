@@ -4,6 +4,12 @@ Design Patterns are solutions to ways to design applications which typically rei
 
 This repo is a collection of these patterns and a simplistic use case that highlights their usage along with some code that may assist with helping explain and understanding their purposes.
 
+## Index
+
+1. [Strategy Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Strategy%20Pattern)
+2. [Observer Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Observer%20Pattern)
+3. [Decorator Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Decorator%20Pattern)
+
 ## Description
 
 Each Design Pattern folder will contain:
