@@ -15,11 +15,10 @@ This repo is a collection of these patterns and a simplistic use case that highl
 Each Design Pattern folder will contain:
 
 1. Readme
-2. Files to demonstrate patterns
+2. HTML, CSS, and TS files.
 
-The readme won't be very in-depth but will provide a general overall look into the design pattern as well as other possible use cases along with a link to a youtube video where I explain further the pattern and the code given.
+Readme will include detailed information on the pattern, files should be executable on a browser.
 
-## Links and Further Information
+## Instructions
 
-1. Head First Design Patterns
-2. Gang of Four
+You can run the index.html files within each pattern and the readme will provide some detailed information for the design pattern. I've also included a Youtube video which will run through the example given and more information on the design pattern.
