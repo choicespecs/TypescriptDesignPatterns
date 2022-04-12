@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-one: #464655;
+    --color-two: #94958B;
+    --color-three: #B7B6C1;
+    --color-four: #D5CFE1;
+    --color-five: #EDDFEF;
+}
+
+body {
+    background-color:var(--color-five);
+}
