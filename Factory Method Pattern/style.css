@@ -23,17 +23,25 @@ section {
     gap: 2em;
 }
 
-.client.window,
-.server.window {
+.window {
     background-color:var(--color-five);
-    width: 400px;
-    height: 500px;
     display:flex;
     flex-direction:column;
     -webkit-box-shadow: 5px 7px 21px -1px rgba(0,0,0,0.47); 
     box-shadow: 5px 7px 21px -1px rgba(0,0,0,0.47);
     gap: 2em;
     text-align:center;
+}
+
+.client.window,
+.server.window {
+    width: 400px;
+    height: 500px;
+}
+
+.user.window {
+    width: 1000px;
+    height: 1000px;
 }
 
 .client.window button {
