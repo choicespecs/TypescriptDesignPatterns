@@ -3,6 +3,7 @@ const requestButton = document.querySelector(".requestButton")!;
 const serverResponse = document.querySelector(".server.response")!;
 const userContent = document.querySelector(".user.content")!;
 const userArticle = document.querySelector(".user.article")!;
+const log : string[] = []
 
 
 function cleanDisplay() {
@@ -24,24 +25,59 @@ interface WebPageGenerator {
     createWebPage(response: HTTPResponse) : WebPage;
 }
 
+function displayImage(path: string) {
+    userContent.innerHTML = `<img src = '${path}' />`;
+}
+
+function displayArticle(article: string) {
+    userArticle.innerHTML = `<p>${article}</p>`;
+}
+
+function getDate() : string {
+    const today = new Date();
+    const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+    const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
+    return `${date} ${time}`
+}
+
+function logger(response: HTTPResponse, tag: number) {
+    const date = getDate();
+    if (tag === 0) {
+        log.push(`CODE: ${response.code}, DATE: ${date}`)
+    } else {
+        log.push(`SECURITY WARNING, CODE: ${response.code}, DATE: ${date}`)
+    }
+    console.log(log);
+}
+
 class DefaultWebPage implements WebPage{
+    private defaultImg = "./";
+    private defaultArticle = "TECHCO: Recent Innovations have created the most innovative technologies for the 21st century";
+
     display() {
-       console.log("Web Page")
+       displayImage(this.defaultImg);
+       displayArticle(this.defaultArticle);
     }
 }
 
 class SecurityWebPage implements WebPage{
+    private securityImg = "./";
+    private securityWarning = "Cannot access";
+
     constructor(private response: HTTPResponse) {}
 
     display(){
-        console.log("Security");
-    }
+        displayImage(this.securityImg);
+        displayArticle(this.securityWarning)
+        logger(this.response, -1);
+    }   
 }
 
 class ContentWebPage implements WebPage {
     constructor(private response: HTTPResponse) {}
     display() {
-        console.log("Content");
+        displayImage(this.response.content!);
+        displayArticle(this.response.article!);
     }
 }
 
@@ -49,7 +85,9 @@ class ServiceWebPage implements WebPage {
     constructor(private response: HTTPResponse) {}
 
     display() {
-        console.log("Service");
+        displayImage(this.response.content!);
+        displayArticle(this.response.article!);
+        logger(this.response, 0);
     }
 }
 
