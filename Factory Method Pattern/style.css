@@ -44,6 +44,11 @@ section {
     height: 1000px;
 }
 
+.user.content img {
+    width: 500px;
+    height: 400px;
+}
+
 .client.window button {
     height: 50px;
     font-size:1em;

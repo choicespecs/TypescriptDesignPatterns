@@ -1,15 +1,21 @@
 const RESPONSE_NUMBERS = [404, 200, 503, 511]
+const RESPONSE_CONTENT = [
+    "./images/response1.jpg",
+    "./images/response2.jpg",
+    "./images/response3.jpg",
+    "./images/response4.jpg"
+]
+const RESPONSE_ARTICLE = [
+    'Information about the latest trends were given to the local authorities', 
+    'incredibly its unsound inauthority meant more individuals were unable to report',
+    'Understated staff could not be involved in the demise of the corporation',
+    'Cannot be given enough notice to care stated the staff at the nearby pool'
+]
 const requestButton = document.querySelector(".requestButton")!;
 const serverResponse = document.querySelector(".server.response")!;
 const userContent = document.querySelector(".user.content")!;
 const userArticle = document.querySelector(".user.article")!;
 const log : string[] = []
-
-
-function cleanDisplay() {
-    userContent.innerHTML = "";
-    userArticle.innerHTML = "";
-}
 
 interface WebPage {
     display() : void;
@@ -51,7 +57,7 @@ function logger(response: HTTPResponse, tag: number) {
 }
 
 class DefaultWebPage implements WebPage{
-    private defaultImg = "./";
+    private defaultImg = "./images/default.jpg";
     private defaultArticle = "TECHCO: Recent Innovations have created the most innovative technologies for the 21st century";
 
     display() {
@@ -61,7 +67,7 @@ class DefaultWebPage implements WebPage{
 }
 
 class SecurityWebPage implements WebPage{
-    private securityImg = "./";
+    private securityImg = "./images/stop.jpg";
     private securityWarning = "Cannot access";
 
     constructor(private response: HTTPResponse) {}
@@ -131,11 +137,24 @@ class HTTPWebResponse implements WebPageGenerator {
     }
 }
 
+function createResponse() : HTTPResponse {
+    const code = RESPONSE_NUMBERS[Math.floor(Math.random() * (4))]
+    const content = RESPONSE_CONTENT[Math.floor(Math.random() * (4))]
+    const article = RESPONSE_ARTICLE[Math.floor(Math.random() * (4))]
+    return {
+        code: code,
+        content: content,
+        article: article
+    }
+}
+const HTTPResponseFactory = new HTTPWebResponse(new ContentWebPageResponse(), new SecurityWebPageResponse());
 
 addEventListener("click", () => {
-    const response = RESPONSE_NUMBERS[Math.floor(Math.random() * (4))]
+    const response = createResponse();
+    const webPage = HTTPResponseFactory.createWebPage(response);
+    webPage.display();
     let responseString : string = ""
-    switch(response) {
+    switch(response.code) {
         case 404:
             responseString = "Not Found"
             break
@@ -148,8 +167,8 @@ addEventListener("click", () => {
         case 511:
             responseString = "Network Authentication Required"
             break
-    }
-    serverResponse.innerHTML = response.toString() + "<br>" + responseString
+    }    
+    serverResponse.innerHTML = response.code.toString() + "<br>" + responseString
 })
 
 
