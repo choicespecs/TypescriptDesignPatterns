@@ -9,6 +9,7 @@ This repo is a collection of these patterns and a simplistic use case that highl
 1. [Strategy Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Strategy%20Pattern)
 2. [Observer Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Observer%20Pattern)
 3. [Decorator Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Decorator%20Pattern)
+4. [Factory Method Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Factory%20Method%20Pattern)
 
 ## Description
 
