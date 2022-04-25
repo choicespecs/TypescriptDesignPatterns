@@ -14,6 +14,7 @@ const RESPONSE_ARTICLE = [
 ];
 const requestButton = document.querySelector(".requestButton");
 const serverResponse = document.querySelector(".server.response");
+const clientResponse = document.querySelector(".client.response");
 const userContent = document.querySelector(".user.content");
 const userArticle = document.querySelector(".user.article");
 const log = [];
@@ -58,7 +59,6 @@ class SecurityWebPage {
     display() {
         displayImage(this.securityImg);
         displayArticle(this.securityWarning);
-        logger(this.response, -1);
     }
 }
 class ContentWebPage {
@@ -77,7 +77,6 @@ class ServiceWebPage {
     display() {
         displayImage(this.response.content);
         displayArticle(this.response.article);
-        logger(this.response, 0);
     }
 }
 class ContentWebPageResponse {
@@ -93,9 +92,11 @@ class ContentWebPageResponse {
 class SecurityWebPageResponse {
     createWebPage(response) {
         if (response.code === 511) {
+            logger(response, -1);
             return new SecurityWebPage(response);
         }
         else {
+            logger(response, 0);
             return new ServiceWebPage(response);
         }
     }
@@ -132,24 +133,46 @@ function createResponse() {
     };
 }
 const HTTPResponseFactory = new HTTPWebResponse(new ContentWebPageResponse(), new SecurityWebPageResponse());
-addEventListener("click", () => {
+requestButton.addEventListener("click", () => {
     const response = createResponse();
     const webPage = HTTPResponseFactory.createWebPage(response);
     webPage.display();
     let responseString = "";
+    let responseContent = "";
+    let responseArticle = "";
     switch (response.code) {
         case 404:
             responseString = "Not Found";
+            responseContent = "Default Page";
+            responseArticle = "Default Page";
             break;
         case 200:
             responseString = "OK";
+            responseContent = response.content;
+            responseArticle = response.article;
             break;
         case 503:
             responseString = "Service Unavailable";
+            responseContent = response.content;
+            responseArticle = response.article;
             break;
         case 511:
             responseString = "Network Authentication Required";
+            responseContent = "CANNOT CONNECT";
+            responseArticle = "CANNOT CONNECT";
             break;
     }
     serverResponse.innerHTML = response.code.toString() + "<br>" + responseString;
+    if (response.code === 503) {
+        clientResponse.innerHTML = `<h5>STATUS:</h5> CLIENT ISSUE LOGGED <br><br> <h5>CONTENT:</h5> ${responseContent} <br><br> <h5>ARTICLE:</h5> ${responseArticle}`;
+    }
+    else if (response.code === 511) {
+        clientResponse.innerHTML = `<h5>STATUS:</h5> SECURITY ISSUE LOGGED <br><br> <h5>CONTENT:</h5> ${responseContent} <br><br> <h5>ARTICLE:</h5> ${responseArticle}`;
+    }
+    else if (response.code === 404) {
+        clientResponse.innerHTML = `<h5>STATUS:</h5> CONTENT NOT FOUND <br><br> <h5>CONTENT:</h5> ${responseContent} <br><br> <h5>ARTICLE:</h5> ${responseArticle}`;
+    }
+    else {
+        clientResponse.innerHTML = `<h5>STATUS:</h5> OK <br><br> <h5>CONTENT:</h5> ${responseContent} <br><br> <h5>ARTICLE:</h5> ${responseArticle}`;
+    }
 });
