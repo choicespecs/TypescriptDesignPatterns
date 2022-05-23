@@ -2,6 +2,8 @@
 
 > Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
+[Abstract Factory Video](https://youtu.be/2mEUGVrU8OA)
+
 A good example of utilizing this pattern can be understood by analyzing _toolkits_ or _themes_ which encompass several different "widgets" or parts which may include UI elements like scroll bars, windows, buttons or many other different elements. These toolkits or themes may not even have any specific understood hardcoded objects or classes. However; it is apparent that these objects and UI elements which exist within these _toolkits_ and _themes_ must be related and utilized together in a single family of objects. This _Abstract Factory_ pattern can force these objects to remain in these families through the use of an interface which will have their own methods on object creation which can present these families of objects together within an application.
 
 Using the _Abstract Factory_ pattern can also help establish relationships and dependencies between these objects within these families which may be useful for specific applications or programs as needed. Normally a single instance of a Concrete implementation of the Abstract Factory is created at run-time. This facotry can create product objects with a specific implementation. To create completely different product objects then an entirely different concrete implementation must be instantiated.
