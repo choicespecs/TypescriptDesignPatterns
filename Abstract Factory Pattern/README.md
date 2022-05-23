@@ -28,18 +28,18 @@ Using the _Abstract Factory_ pattern can also help establish relationships and d
 : defines a product object to be created by the corresponding concrete factory, implements the **AbstractProduct** interface
 
 **Client**
-: uses only interfaces decalred by **AbstractFactory** and **AbstractProduct** classes.
+: uses only interfaces declared by **AbstractFactory** and **AbstractProduct** classes.
 
 ## Consequences
 
 1. _Isolates concrete classes_
-   :
+   : helps control the classes of objects an application creates. This refers to how a factory can encapsulate responsibilities and the process of creating objects so it can isolate their clients from implementing classes. Clients then can further manipulate instances through interfaces meaning specifically you can isolate implementation and add further abstraction in your code.
 
 2. _Exchanging product families becomes easy._
-   :
+   : Since there is only one concrete factory within your application. It becomes easier to switch out the factory within your application if necessary since they implement the same factory methods and have the same family of products through their interface.
 
 3. _Promotes consistency among products._
-   :
+   : Helps enforce a specific family of products within a factory thus creating a bit of consistency in how factories are created, implemented, and used within an application
 
 4. _Supporting new products is difficult._
-   :
+   : When you want to add a new product within an already existing abstract factory that becomes a bit difficult since when one new product is added then all concrete implementations of that abstract factory must be adjusted as well.
