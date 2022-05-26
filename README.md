@@ -11,6 +11,7 @@ This repo is a collection of these patterns and a simplistic use case that highl
 3. [Decorator Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Decorator%20Pattern)
 4. [Factory Method Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Factory%20Method%20Pattern)
 5. [Abstract Factory Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Abstract%20Factory%20Pattern)
+6. [Command Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Command%20Pattern)
 
 ## Description
 
