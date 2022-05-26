@@ -1,3 +1,5 @@
+![Cover](./cover.png)
+
 # Typescript Design Patterns
 
 Design Patterns are solutions to ways to design applications which typically reinforces the ideas surrounding very popular programming principles such as Open-Closed principles and helping create applications and software that is scalable, adjustable, and modifiable for future modifications.

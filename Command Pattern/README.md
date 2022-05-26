@@ -33,3 +33,9 @@ When we encapsulate requests, operations, and actions into their own classes we 
 : knows how to perform the operations associated with carrying out a request. Any class may serve as a Reciever.
 
 ## Consequences
+
+1. _Supports undo & redo_
+   : We can encapsulate execute, redo, and undo within the command itself. However more complex multiple-level undo and redo will request a history list of commands which can be looped through in a set sequence to cancel their effects or execute them again depending on the order of operations that were executed already on the history list.
+
+2. _Avoiding error accumulation in the undo process._
+   : Since each undo is specifically tied to the class and method that has executed their command. Potential errors can accrue and grow as commands are repeatedly being executed, unexecuted, and reexecuted within an application. Therefore using a class with all the information about execute, undo, and redo can also hold more information to restore back to original state.
