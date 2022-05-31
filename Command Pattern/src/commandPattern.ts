@@ -29,6 +29,12 @@ class ApplicationDatabase implements Database {
             return obj.id !== identification;
         })
     }
+
+    read(id: number) {
+        return this.database.find((obj: Data) => {
+            return obj.id === id;
+        })
+    }
 }
 
 interface Command {
@@ -64,11 +70,16 @@ class DatabaseApplication {
     insert(data: Data) {
         const command = new InsertDatabase(this.database, data);
         this.commands.push(command);
+        command.execute();
     }
 
-    delete(id: number) {
-        const command = new DeleteDatabase(this.database, id);
-        this.commands.push(command);
+    delete(id : number) {
+        const data = this.database.read(id);
+        if (data) {
+            const command = new DeleteDatabase(this.database, data);
+            this.commands.push(command);
+            command.execute();
+        }
     }
 
 }
