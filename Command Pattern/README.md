@@ -1,6 +1,6 @@
 # Command Pattern
 
-> Encapsulate a request as an object instead, allowing you to parameterize clients with different requests, queue, or log reuqests and support redo and undo of requests and operations.
+> Encapsulate a request as an object instead, allowing you to parameterize clients with different requests, queue, or log requests and support redo and undo of requests and operations.
 
 Sometimes operations and requests cannot be fully accounted for within a design or code for an application or context due to your application scaling out and handling operations dynamically without specific direction or allocation. This can happen with toolkits which may have variety of requests that can happen on the press of a button or interaction with a menu, but will have no idea on who may receive that specific request or the operations themselves.
 
