@@ -38,7 +38,6 @@
   .commands {
     background-color: var(--color-four);
     border-left: 1px solid black;
-    padding: 2em;
     display:flex;
     flex-direction: column;
   }
@@ -52,8 +51,9 @@
   }
 
   .form-wrapper {
+    padding: 2em;
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1em;
   }
 
@@ -119,4 +119,40 @@
 
   form {
     margin-top: 30px;
+  }
+
+  .commands-nav {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding: 1em;
+    background-color: var(--color-two);
+  }
+
+  .commands-nav button {
+    color: white;
+    border:none;
+    background:none;
+    cursor: pointer;
+    padding: 0.8em;
+    border-radius: 2em;
+  }
+
+  .saved-database {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    text-align:center;
+  }
+
+  .saved-database li {
+    margin-top: 2em;
+    width: 100%;
+    padding: 2em;
+    background-color: grey;
+    cursor: pointer;
   }
