@@ -2,6 +2,8 @@
 
 > Encapsulate a request as an object instead, allowing you to parameterize clients with different requests, queue, or log requests and support redo and undo of requests and operations.
 
+[Command Pattern Video](https://youtu.be/mW-HKB8fsTs)
+
 Sometimes operations and requests cannot be fully accounted for within a design or code for an application or context due to your application scaling out and handling operations dynamically without specific direction or allocation. This can happen with toolkits which may have variety of requests that can happen on the press of a button or interaction with a menu, but will have no idea on who may receive that specific request or the operations themselves.
 
 By making requests and operations themselves objects then you can use them without any specific requester or allow a bit more freedom in how they are used within an application because they are not constrained by a specific class themselves. As commands are created using interfaces they can in some ways solidify and hold very particular relationships between receiever-action pair. This also is useful for menu's when one command can be a sequence of numerous actions or can be a complex request which entails multiple requests. Thus using the command pattern can encapsulate this sequence of commands or complexity into the one command itself.
