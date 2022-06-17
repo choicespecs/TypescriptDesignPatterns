@@ -1,3 +1,8 @@
+/*
+Example One:
+Interface 1: Media Player (play)
+Interface 2: Advanced Media Player (playVid, playMusic)
+*/
 interface MediaPlayer {
     play(mediaType : string, fileName : string) : void;
 }
@@ -44,15 +49,72 @@ class MediaAdapter implements MediaPlayer {
     }
 }
 
-class AudioPlayer implements MediaPlayer {
+class AudioTextReader implements MediaPlayer {
     private mediaAdapter : MediaAdapter;
 
     play(audioType: string, fileName: string) {
-        if (audioType === "mp3") {
-            console.log(`Playing mp3 ${fileName}`)
+        if (audioType === "txt") {
+            console.log(`Reading txt ${fileName}`)
         } else {
             this.mediaAdapter = new MediaAdapter(audioType);
             this.mediaAdapter.play(audioType, fileName);
         }
+    }
+}
+
+/*
+Example Two:
+*/
+
+// Target
+interface CreditCardPayment {
+    getBankDetails() : void;
+    getCreditCard(): string;
+}
+
+// Adaptee
+class BankDetails {
+    private bankName : string;
+    private accName : string;
+    private accNumber : number;
+
+    getBankName() {
+        return this.bankName;
+    }
+
+    setBankName(bankName : string) {
+        this.bankName = bankName;
+    }
+
+    getAccName() {
+        return this.accName;
+    }
+
+    setAccName(accName : string) {
+        this.accName = accName;
+    }
+
+    getAccNumber() {
+        return this.accNumber;
+    }
+
+    setAccNumber(accNumber : number) {
+        this.accNumber = accNumber;
+    }
+}
+
+// Adapter class
+class BankCustomer extends BankDetails implements CreditCardPayment {
+
+    getBankDetails(): void {
+        const accNumber = this.getAccNumber();
+        const accName = this.getAccName();
+        const bankName = this.getBankName();
+        console.log(`Account Number: ${accNumber}, Account Name; ${accName}, Bank Name; ${bankName}`);
+    }
+
+    getCreditCard(): string {
+        const accNumber = this.getAccNumber();
+        return accNumber.toString();
     }
 }
