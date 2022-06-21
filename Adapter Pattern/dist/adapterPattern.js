@@ -1,4 +1,9 @@
 "use strict";
+/*
+Example One:
+Interface 1: Media Player (play)
+Interface 2: Advanced Media Player (playVid, playMusic)
+*/
 class YouTubePlayer {
     playVid(fileName) {
         console.log(`opened youtube video: ${fileName}`);
@@ -29,6 +34,11 @@ class MediaAdapter {
         }
     }
 }
+/*
+    we have an adaptee that is meant to interact with the target & subclases
+    we use the adapter so we can interface with target that may not match
+    perfectly with our class.
+ */
 class AudioTextReader {
     play(audioType, fileName) {
         if (audioType === "txt") {
@@ -40,7 +50,11 @@ class AudioTextReader {
         }
     }
 }
-// Adaptee
+/*
+    Adaptee which we want to connect together with the target
+    but we do not have any way currently to connect the two together
+    without adding additional implementations or code
+*/
 class BankDetails {
     getBankName() {
         return this.bankName;
@@ -61,7 +75,9 @@ class BankDetails {
         this.accNumber = accNumber;
     }
 }
-// Adapter class
+/* Adapter class
+ allows adaptee to interact together with the target to
+*/
 class BankCustomer extends BankDetails {
     getBankDetails() {
         const accNumber = this.getAccNumber();

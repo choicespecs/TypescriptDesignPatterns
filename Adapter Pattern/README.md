@@ -1,6 +1,6 @@
 # Adapter Pattern
 
-###### NOTE: This pattern does not have any html only typescript to the pattern's own use which is hard to demonstrate it's use visually.
+###### NOTE: This pattern does not have any html only typescript
 
 > Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatable interfaces.
 
