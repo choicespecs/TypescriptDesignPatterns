@@ -4,6 +4,8 @@
 
 > Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatable interfaces.
 
+[Adapter Pattern Video](https://youtu.be/CTil5a9V8ps)
+
 Programs and Applications may perhaps adopt outside libraries or toolkits. However; this can complicate their use specifically if you consider that sometimes libraries and modules do not exactly fit into an entire domain when implemented. For xample, a toolkit that illustrates a window or users uses shapes, images, and visuals to display content to the user. However; a newspaper or blog company is trying to connect lengthy articles as well in conjunction with this specific toolkit instead of implementing a completely separate prograem or library.
 
 The solution may be adapting an interface or even a class to be used in conjunction with this library. Creating an interface that can mimic something of a _TextShape_ or _TextVisual_ or _TextImage_ that can be used with the library. This is useful because it does not require any modification to the original code of the library, nor will it require heavy knowledge of use of the source code as well since you can use an adapter interface or class to only fit for a specific purpose within another library.
