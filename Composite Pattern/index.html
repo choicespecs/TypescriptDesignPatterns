@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composite Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./dist/compositePattern.js" defer></script>
+</head>
+<body>
+    <div class="visual-screen">
+        <div class="window">
+            <nav></nav>
+            <header>
+                <div class="header info">
+                    <div class="info-content">
+                        <h1>Joe's Music Store</h1>
+                        <h5>Music Equipment & Other music things</h5>
+                    </div>
+                </div>
+                <div class="header img">
+                    <img src="./assets/music-shop.png" alt="">
+                </div>
+            </header>
+            <section>
+                <form class="music-shop-form" onsubmit="addMusicProduct()">
+                    <div class="form-grid-one">
+                        <p class="product-name">Speakers:</p>
+                        <div class="price-input-column">
+                            <label for="speakers-price">price:</label>
+                            <input type="text" name="speakers-price" id="speakers-price" value="20">
+                        </div>
+                        <div class="quantity-input-column">
+                            <label for="speakers-quantity">quantity:</label>
+                            <input type="text" name="speakers-quantity" id="speakers-quantity" value="1">
+                        </div>
+                        <div class="product-calc-info">
+                            <h5>Current Price:</h5>
+                            <p class="speakers-calc-price"></p>
+                        </div>
+                        <p class="product-name">Turntables:</p>
+                        <div class="price-input-column">
+                            <label for="turntables-price">price:</label>
+                            <input type="text" name="turntables-price" id="turntables-price" value="80">
+                        </div>
+                        <div class="quantity-input-column">
+                            <label for="turntables-quantity">quantity:</label>
+                            <input type="text" name="turntables-quantity" id="turntables-quantity" value="1">
+                        </div>
+                        <div class="product-calc-info">
+                            <h5>Current Price:</h5>
+                            <p class="turntables-calc-price"></p>
+                        </div>
+                    </div>
+                    <button type="submit">Purchase</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="visual-screen">
+        <div class="window">
+            <nav></nav>
+            <header>
+                <div class="header info">
+                    <div class="info-content">
+                        <h1>Mary's Book Store</h1>
+                        <h5>Books and New Titles</h5>
+                    </div>
+                </div>
+                <div class="header img">
+                    <img src="./assets/book-store.jpeg" alt="">
+                </div>
+            </header>
+            <section>
+                <form class="book-shop-form" onsubmit="addBookProduct()">
+                    <div class="form-grid-one">
+                        <p class="product-name">Notebook:</p>
+                        <div class="price-input-column">
+                            <label for="notebook-price">price:</label>
+                            <input type="text" name="notebook-price" id="notebook-price" value="20">
+                        </div>
+                        <div class="quantity-input-column">
+                            <label for="notebook-quantity">quantity:</label>
+                            <input type="text" name="notebook-quantity" id="notebook-quantity" value="1">
+                        </div>
+                        <div class="product-calc-info">
+                            <h5>Current Price:</h5>
+                            <p class="notebook-calc-price"></p>
+                        </div>
+                        <p class="product-name">Textbooks:</p>
+                        <div class="price-input-column">
+                            <label for="textbook-price">price:</label>
+                            <input type="text" name="textbook-price" id="textbook-price" value="50">
+                        </div>
+                        <div class="quantity-input-column">
+                            <label for="textbook-quantity">quantity:</label>
+                            <input type="text" name="textbook-quantity" id="textbook-quantity" value="1">
+                        </div>
+                        <div class="product-calc-info">
+                            <h5>Current Price:</h5>
+                            <p class="textbook-calc-price"></p>
+                        </div>
+                    </div>
+                    <button type="submit">Purchase</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="visual-screen">
+        <div class="window">
+            <nav></nav>
+            <div class="info-banner">
+                <h2>Store Accounts</h2>
+            </div>
+            <div class="store-accounts-info">
+                <div class="music-store-accounts">
+                    <div class="store-total">
+                        <button onclick="calculateMusicStore()">Calculate Music Store</button>
+                        <h3>Joe Music Store Total: </h3>
+                        <span class="music-store-total"></span>
+                    </div>
+                    <ul class="current-music-trends">
+                    </ul>
+                </div>
+                <div class="book-store-accounts">
+                    <div class="store-total">
+                        <button onclick="calculateBookStore()">Calculate Book Store</button>
+                        <h3>Mary Book Store Total: </h3>
+                        <span class="book-store-total"></span>
+                    </div>
+                    <ul class="current-book-trends">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

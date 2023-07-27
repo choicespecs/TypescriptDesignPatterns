@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-one: #351431;
+  --color-two: #775253;
+  --color-three: #bdc696;
+  --color-four: #d1d3c4;
+  --color-five: #dfe0dc;
+}
+
+.window,
+.client-window {
+  width: 300px;
+  height: 300px;
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-five);
+}
+
+nav {
+  width: 100%;
+  height: 20px;
+  background-color: var(--color-three);
+}
+
+h3 {
+  background-color: white;
+  padding: 5px;
+}
+
+/* observer.html Observer Example Styles */
+.server-application,
+.user-application {
+  height: 100vh;
+  width: 100vw;
+}
+
+.server-application {
+  background-color: var(--color-two);
+}
+
+.user-application {
+  background-color: var(--color-one);
+}
+
+.window-holder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10em;
+}
+
+.user-info {
+  margin-bottom: 2em;
+}

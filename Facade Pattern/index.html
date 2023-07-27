@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facade Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./dist/facadePattern.js" defer></script>
+  </head>
+  <body>
+    <div class="window one">
+      <div class="screen calculator">
+        <h3>Calculator</h3>
+          <div class="calculator input-group">
+            <label for="num1">Num 1:</label>
+            <input type="text" id="num1" name="num1">
+            <label for="num2">Num 2:</label>
+            <input id="num2" type="text" name="num2">
+          </div>
+          <div class="calculator button-group">
+            <button id="calculator_add">Add</button>
+            <button id="calculator_subtract">Subtract</button>
+            <button id="calculator_multiply">Multiply</button>
+            <button id="calculator_divide">Divide</button>
+          </div>
+        <div class="calculator total">
+        </div>
+      </div>
+    </div>
+    <div class="window two">
+      <div class="screen tax">
+        <h3>Tax Calculator</h3>
+        <form onsubmit="calculateTax()">
+          <label for="product-price">Product Price:</label>
+          <input id="product-price" type="text" name="product-price">
+          <select id="tax-location" name="location">
+            <option value=""></option>
+            <option value="america">America</option>
+            <option value="europe">Europe</option>
+          </select>
+          <button id="tax_calculate" >Calculate</button>
+        </form>
+        <div class="tax output">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

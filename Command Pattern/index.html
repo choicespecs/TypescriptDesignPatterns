@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./dist/commandPattern.js" defer></script>
+</head>
+<body>
+    <div class="window">
+        <div class="database">
+            <div class="col one">
+                <h1>User Name</h1>
+                <ul class="username-list">
+                </ul>
+            </div>
+            <div class="col two">
+                <h1>Information</h1>
+                <ul class="information-list">
+                </ul>
+            </div>
+        </div>
+        <div class="commands">
+            <div class="commands-nav">
+                <button class="undo-btn">Undo</button>
+            </div>
+            <form onsubmit="myFunction()">
+                <div class="form-wrapper">
+                    <div class="label-wrapper">
+                        <label for="username">Username:</label>
+                        <label for="info" name="information">Information:</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" name="username">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="button-holder">
+                    <button type="submit" class="form-button">Submit</button>
+                </div>
+            </form>
+            <div class="commands-window">
+                <h2>Actions:</h2>
+                <ul class="actions">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

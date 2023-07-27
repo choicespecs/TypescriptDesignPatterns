@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-one: #9CF6F6;
+    --color-two: #F3C98B;
+    --color-three: #DAA588;
+    --color-four: #C46D5E;
+    --color-five: #F56960;
+}
+
+body {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-one);
+}
+
+.screen {
+    height: 500px;
+    width: 500px;
+    background-color: var(--color-two);
+    display: flex;
+    flex-direction:column;
+}
+
+nav {
+    width: auto;
+    height: 20px;
+    background-color: var(--color-three);
+}
+
+header {
+    width: auto;
+    height: auto;
+    padding: 2em;
+    display:flex;
+    flex-direction:column;
+}
+
+.content-holder {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.bank-display {
+    width: 250px;
+    height: auto;
+    padding: .75em;
+    border-radius: 2em;
+    background-color: white;
+}
+
+.bottom-content-holder {
+    margin: 2em;
+    display:flex;
+    flex-direction:row;
+}
+
+.bottom-content-holder > div {
+    width: 50%;
+    height: 100%;
+}
+
+.form-holder {
+    border-right: 1px solid black;
+}
+
+.form-holder form {
+    display:flex;
+    flex-direction:column;
+    margin: 2em;
+    gap: 0.5em;
+}
+
+.status-holder {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 2em;
+}
+
+.status-card {
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    width: 100%;
+    background-color:white;
+    border-radius: 1.25em;
+}
+
+.status-title-description {
+    text-align:center;
+    padding: 1em;
+    border-bottom: 1px solid black;
+}
+
+.status-info-description {
+    width: 100%;
+    height: 100%;
+    padding: 1.5em;
+}

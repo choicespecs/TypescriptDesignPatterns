@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-one: #1446A0;
+    --color-two: #DB3069;
+    --color-three: #F5D547;
+    --color-four: #EBEBD3;
+    --color-five: #3C3C3B;
+  }
+
+  .visual-screen {
+    height:100vh;
+    background-color:var(--color-five);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  input {
+    width: 30px;
+  }
+
+
+  .window {
+    width: 500px;
+    display:flex;
+    flex-direction:column;
+    background-color:var(--color-four);
+  }
+
+  nav {
+    width:auto;
+    height: 20px;
+    background-color:var(--color-two);
+  }
+
+  header {
+    width: auto;
+    height: 150px;
+    display:flex;
+    flex-direction:row;
+  }
+
+  .form-grid-one {
+    display:grid;
+    grid-template-columns:repeat(8, 1fr);
+    gap: 0.5em;
+  }
+
+  .product-name {
+    grid-column: 1 / 2;
+  }
+  
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .header {
+    flex-basis:0;
+    flex-grow:1;
+    padding: 2em;
+    text-align:center;
+  }
+
+  .header.info {
+    text-align:left;
+  }
+
+  .price-display {
+    text-align:center;
+  }
+
+  form {
+    padding: 2em;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+  }
+
+  .form-row {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap: 1.5em;
+  }
+
+  .input-column {
+    display:flex;
+    flex-direction:column;
+  }
+
+  .price-input-column,
+  .quantity-input-column {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .price-input-column {
+    grid-column: 3;
+  }
+
+  .quantity-input-column {
+    grid-column: 4;
+  }
+
+  .product-calc-info {
+    grid-column: 6 / -1;
+  }
+
+  .input-column > label {
+    font-size: 0.8rem;
+  }
+
+  .product-calc-info {
+    text-align:center;
+  }
+
+  .info-banner {
+    text-align:center;
+  }
+
+  .store-accounts-info {
+    display:flex;
+    flex-direction:row;
+  }
+
+  .current-music-trends,
+  .current-book-trends {
+    padding: 1.2em;
+  }
+
+  .store-accounts-info > * {
+    flex: 1;
+  }
+
+  .store-total {
+    text-align:center;
+  }
+
+  ul li {
+    list-style-type:none;
+  }
+
+
+

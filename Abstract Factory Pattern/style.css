@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-one: #5A7D7C;
+    --color-two: #232C33;
+    --color-three: #A0C1D1;
+    --color-four: #242331;
+    
+  }
+
+  body {
+    background-color: var(--color-one);
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .window {
+    background-color: var(--color-three);
+    height: 1000px;
+    width: 900px;
+    display:flex;
+    flex-direction:row;
+    overflow:auto;
+  }
+
+  .sidebar {
+    background-color: var(--color-two);
+    height: 100%;
+    width: 200px;
+    text-align:center;
+  }
+
+  .theme-wrapper {
+    height: 100%;
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+
+  .theme-nav {
+    width: 100%;
+    height: 0;
+  }
+
+  .theme {
+    height: 600px;
+    width: 600px;
+  }
+
+  .theme-name {
+    display:flex;
+    flex-direction: column;
+    color:white;
+    margin: 2em 0;
+  }
+  
+  .theme-buttons {
+    display:flex;
+    flex-direction:column;
+    height: 360px;
+  }
+
+  .theme-content {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+  }
+
+  .theme-content img {
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+  }
+
+  .theme-buttons button {
+    height: 90px;
+    font-size: 18px;
+  }
+
+  .nav-button {
+    display:block;
+  }
+
+  .action-wrapper {
+    color: white;
+    margin: 2em 0;
+  }
