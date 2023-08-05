@@ -14,17 +14,20 @@
       <div class="content-window">
         <div class="database">
           <h1>Database:</h1>
-          <ul class="database-list" >
+          <ul class="database-list">
           </ul>
         </div>
         <div class="crud-options">
-          <form action="">
+          <div class="crud-options-nav">
+            <button class="write-access deny">Write Access</button>
+          </div>
+          <form action="" onsubmit="addDatabase()">
             <div class="form-wrapper">
               <div class="label-wrapper">
                 <label for="insert">Insert:</label>
               </div>
               <div class="input-wrapper">
-                <input type="text" name="insert">
+                <input type="text" name="insert" class="write-database deny">
               </div>
             </div>
             <div class="button-holder">
