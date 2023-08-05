@@ -102,3 +102,46 @@ input {
     grid-template-columns: 2 / -1;
 }
 
+.crud-options-nav {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    height: fit-content;
+    padding: 1em;
+    gap: 1em;
+    background-color:var(--color-five);
+}
+
+.crud-options-nav button {
+    color: white;
+    cursor: pointer;
+    padding: 0.8em;
+    border-radius: 2em;
+}
+
+.deny {
+    background: red;
+}
+
+.form-button.deny {
+    display: none;
+}
+
+.write-database.deny {
+    pointer-events:none;
+}
+
+.allow {
+    background: green;
+}
+
+.no-read-access {
+    display: none;
+}
+
+.read-access {
+    display: block;
+}
+
