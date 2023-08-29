@@ -36,7 +36,14 @@ nav {
     flex-direction: column;
 }
 
+#dashboard {
+    height: 300px;
+    overflow:auto;
+    padding: 2em;
+}
+
 .dashboard {
+    border-radius:2em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -74,9 +81,39 @@ nav {
 .form-item {
     flex-shrink: 0;
     align-self: flex-end;
+    width: 100%;
 }
 
 .dashboard-banner {
     padding: 1.2em;
     text-align:center;
+}
+
+.form-inputs {
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+    padding: 8px;
+}
+
+.radio-buttons {
+    flex-direction:row;
+}
+
+.error-display {
+    display: none;
+    text-align:center;
+    padding: 8px;
+    border-radius:8px;
+    background-color:salmon;
+    width: 100%;
+}
+
+.success-display {
+    display: none;
+    text-align:center;
+    padding: 8px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #4BB543;
 }
