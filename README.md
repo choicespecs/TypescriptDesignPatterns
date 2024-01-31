@@ -20,6 +20,8 @@ This repo is a collection of these patterns and a simplistic use case that highl
 10. [Iterator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Iterator%20Pattern)
 11. [Composite Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Composite%20Pattern)
 12. [State Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/State%20Pattern)
+13. [Proxy Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Proxy%20Pattern)
+14. [Builder Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Builder%20Pattern)
 
 ## Description
 
