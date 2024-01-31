@@ -1,0 +1,14 @@
+/* Menu item styles */
+.menu-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-item i {
+  margin-right: 5px;
+}
