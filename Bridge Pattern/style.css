@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-one: #4c6085;
+  --color-two: #39a0ed;
+  --color-three: #13c4a3;
+  --color-four: #32322c;
+  --color-five: #36f1cd;
+}
+
+body {
+  background-color: var(--color-one);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window {
+  background-color: var(--color-three);
+  height: 250px;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+section {
+  padding: 10em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10em;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  height: 20px;
+  background-color: var(--color-four);
+}
