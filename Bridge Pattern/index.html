@@ -4,18 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abstract Factory Pattern</title>
+    <title>Bridge Pattern</title>
     <link rel="stylesheet" href="style.css" />
     <script src="./dist/bridgePattern.js" defer></script>
   </head>
   <body>
     <section>
-      <div class="window notify-window">
+      <div class="window notification">
         <nav></nav>
-      </div>
-      <div class="window display-notify-window">
-        <nav></nav>
+        <h4>Message</h4>
+        <input type="text" id="message" />
+        <div class="content">
+          <h4>Notification Type <span id="notification-type"></span></h4>
+          <div class="notify-window">
+            <button id="email-button">Email</button>
+            <button id="sms-button">SMS</button>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Display <span id="display-type"></span></h4>
+          <div class="display-notify-window">
+            <button id="toast-button">Toast</button>
+            <button id="modal-button">Modal</button>
+          </div>
+        </div>
+        <button id="create-message">Send and Display</button>
+        <button id="reset" style="display: none">Reset</button>
       </div>
     </section>
+    <div id="modal" class="modal">
+      <span class="modal-close">&times;</span>
+      <div class="modal-message" id="modal-message"></div>
+    </div>
+    <div class="toast-container"></div>
   </body>
 </html>
