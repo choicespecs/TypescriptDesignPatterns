@@ -23,6 +23,7 @@ This repo is a collection of these patterns and a simplistic use case that highl
 13. [Proxy Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Proxy%20Pattern)
 14. [Builder Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Builder%20Pattern)
 15. [Prototype Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Prototype%20Pattern)
+16. [Bridge Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Bridge%20Pattern)
 
 ## Description
 
