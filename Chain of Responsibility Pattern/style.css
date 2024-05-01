@@ -5,9 +5,52 @@
 }
 
 :root {
-  --color-one: #586ba4;
-  --color-two: #324376;
-  --color-three: #f5dd90;
-  --color-four: #f68e5f;
-  --color-five: #f76c5e;
+  --color-one: #d0efb1;
+  --color-two: #b3d89c;
+  --color-three: #9dc3c2;
+  --color-four: #77a6b6;
+  --color-five: #4d7298;
+}
+
+body {
+  background-color: var(--color-one);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window {
+  background-color: var(--color-three);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+}
+
+#validationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input label {
+  width: 150px; /* Set a fixed width for the labels */
+  margin-bottom: 5px; /* Add some margin-bottom for spacing */
+}
+
+.form-title {
+  padding: 12px;
+  text-align: center;
 }
