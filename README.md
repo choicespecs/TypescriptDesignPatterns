@@ -25,6 +25,7 @@ This repo is a collection of these patterns and a simplistic use case that highl
 15. [Prototype Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Prototype%20Pattern)
 16. [Bridge Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Bridge%20Pattern)
 17. [Flyweight Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Flyweight%20Pattern)
+18. [Chain of Responsibility Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Chain%20of%20Responsibility%20Pattern)
 
 ## Description
 
