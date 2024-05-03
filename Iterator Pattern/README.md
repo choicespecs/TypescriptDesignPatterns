@@ -10,13 +10,14 @@ The purpose of decoupling both access and traversal from the List or Collection 
 
 Since we are decoupling the "iteration" from a list. We can end up many multiple implementations of a List and at the same time end up with multiple implentations of iterators. This can end up with the problem of placing the appropriate iterator to the appropriate list thus the responsibility of creating the iterator should be placed within the List. We can utilize the factory method to instantiate both the iterators and lists and have a way to connect the two together.
 
-
 ## Application
+
 - Access an aggregate object's contents without exposing its internal representation.
 - to support multiple traversals of aggregate objects.
 - to provide a uniform interface for traversing different aggregate structures (that is, to support polymorphic iteration)
 
 ## Definitions
+
 **Iterator**
 : defines an interface for accessing and traversing elements.
 
@@ -30,14 +31,12 @@ Since we are decoupling the "iteration" from a list. We can end up many multiple
 : implements the Iterator creation interface to return an instance of the proper Concrete Iterator.
 
 ## Consequences
-1. *It supports variations in the traversal of a List or Collection*
-: There can be multiple ways within an application that may require a traversal of one collection or list. This can be through a specific order of indexing or could be a specific algorithm which traverses the index which does not follow a typical sequential order. This traversal may also require the knowledge of the current position within the traversal or the prev and next. Thus the iterator pattern can allow for multiple traversals with the knowledge of the current position within each one.
 
-2. *Multiple traversals at the same current time*
-: Different iterators running either concurrently or in a specific order or time can lead to different traversals in progress which may be necessary depending on the application or domain.
+1. _It supports variations in the traversal of a List or Collection_
+   : There can be multiple ways within an application that may require a traversal of one collection or list. This can be through a specific order of indexing or could be a specific algorithm which traverses the index which does not follow a typical sequential order. This traversal may also require the knowledge of the current position within the traversal or the prev and next. Thus the iterator pattern can allow for multiple traversals with the knowledge of the current position within each one.
 
-3. *Simplifies the List or Collection Interface*
-: If you abstract the traversal from the List or Collection you are able to simplify the interface of the List or Collection as well.
+2. _Multiple traversals at the same current time_
+   : Different iterators running either concurrently or in a specific order or time can lead to different traversals in progress which may be necessary depending on the application or domain.
 
-
-
+3. _Simplifies the List or Collection Interface_
+   : If you abstract the traversal from the List or Collection you are able to simplify the interface of the List or Collection as well.
