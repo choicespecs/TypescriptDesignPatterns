@@ -4,23 +4,30 @@ class ChatRoom {
     constructor() {
         this.components = [];
     }
-    notify(sender, event, data) {
-        if (sender instanceof ChatInput && event === "send") {
-            const message = data;
-            this.sendMessage(message);
-        }
-        else if (sender instanceof NotificationButton &&
-            event === "notificationClicked") {
-            this.handleNotification();
-        }
-    }
+    // Register a component with the mediator.
     registerComponent(component) {
         this.components.push(component);
     }
+    // Send a message to be displayed in the chat.
     sendMessage(message) {
         console.log(`Message sent: ${message}`);
         this.updateMessageDisplay(`You: ${message}`);
+        // Trigger notification when a message is sent
+        this.sendNotification();
     }
+    // Trigger a notification.
+    sendNotification() {
+        console.log("Notification triggered");
+        this.notifyComponents("notificationTriggered");
+        // Handle notification logic
+    }
+    // Notify all components about an event.
+    notifyComponents(event, data) {
+        this.components.forEach((component) => {
+            component.notify(event, data);
+        });
+    }
+    // Update the chat message display.
     updateMessageDisplay(message) {
         console.log(`Message displayed: ${message}`);
         // For demonstration, let's assume this method updates the UI to display the message
@@ -28,10 +35,6 @@ class ChatRoom {
         const messageElement = document.createElement("div");
         messageElement.textContent = message;
         chatMessages === null || chatMessages === void 0 ? void 0 : chatMessages.appendChild(messageElement);
-    }
-    handleNotification() {
-        console.log("Notification button clicked");
-        // Handle notification logic
     }
 }
 // Components communicate with a mediator using the mediator
@@ -42,6 +45,10 @@ class Component {
     constructor(mediator) {
         this.mediator = mediator;
     }
+    // Notify the mediator about an event.
+    notify(event, data) {
+        // Components can react to specific events if needed
+    }
 }
 // Concrete components don't talk to each other. They have only
 // one communication channel, which is sending notifications to
@@ -51,18 +58,23 @@ class ChatInput extends Component {
         super(mediator);
         this.messageInput = document.getElementById("message-input");
         this.sendButton = document.getElementById("send-button");
-        this.sendButton.addEventListener("click", this.click.bind(this));
+        this.sendButton.addEventListener("click", this.sendMessage.bind(this));
     }
-    click() {
-        console.log("send message");
-        this.sendMessage();
-    }
+    // User clicks send button to send a message.
     sendMessage() {
         const message = this.messageInput.value.trim();
         if (message !== "") {
-            this.mediator.notify(this, "send", message);
+            this.mediator.sendMessage(message);
             this.messageInput.value = "";
         }
+    }
+    // Handle events relevant to ChatInput.
+    notify(event, data) {
+        if (event === "messageReceived") {
+            // Handle message received event
+            console.log(`Message received: ${data}`);
+        }
+        // Add other event handling as needed
     }
 }
 class NotificationButton extends Component {
@@ -71,8 +83,21 @@ class NotificationButton extends Component {
         this.button = document.getElementById("notification-button");
         this.button.addEventListener("click", this.click.bind(this));
     }
+    // User clicks notification button.
     click() {
-        this.mediator.notify(this, "notificationClicked");
+        console.log("Notification button clicked");
+        // Handle notification button click
+    }
+    // React to the notificationTriggered event.
+    notify(event, data) {
+        if (event === "notificationTriggered") {
+            this.showNotification();
+        }
+    }
+    // Show a notification.
+    showNotification() {
+        console.log("Notification shown");
+        // Handle notification display
     }
 }
 // Usage
