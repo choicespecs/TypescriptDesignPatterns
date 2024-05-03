@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mediator Pattern: Example</title>
-    <script src="./dist/mediator.js" defer></script>
+    <script src="./dist/mediatorPattern.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="chat">
+      <div id="chat-messages"></div>
+      <div id="chat-input">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Type your message here"
+        />
+        <button id="send-button">Send</button>
+      </div>
+      <button id="notification-button">Notification</button>
+      <div id="user-list"></div>
+    </div>
+  </body>
 </html>
