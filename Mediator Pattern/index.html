@@ -9,18 +9,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="chat">
-      <div id="chat-messages"></div>
-      <div id="chat-input">
+    <div id="chat-window-1" class="chat-window">
+      <h2>Alice Chat Window</h2>
+      <div class="chat-messages"></div>
+      <div class="chat-input" id="chat-input-1">
         <input
           type="text"
-          id="message-input"
+          id="message-input-1"
           placeholder="Type your message here"
         />
-        <button id="send-button">Send</button>
+        <button class="send-button" id="send-button-1">Send</button>
       </div>
-      <button id="notification-button">Notification</button>
-      <div id="user-list"></div>
+      <div class="user-list" id="user-list-1"></div>
+    </div>
+
+    <div id="chat-window-2" class="chat-window">
+      <h2>Bob Chat Window</h2>
+      <div class="chat-messages"></div>
+      <div class="chat-input" id="chat-input-2">
+        <input
+          type="text"
+          id="message-input-2"
+          placeholder="Type your message here"
+        />
+        <button class="send-button" id="send-button-2">Send</button>
+      </div>
+      <div class="user-list" id="user-list-2"></div>
     </div>
   </body>
 </html>

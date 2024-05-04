@@ -1,109 +1,74 @@
 "use strict";
-// Concrete mediator class that manages communication between components.
+var _a, _b;
+// Concrete mediator class that manages communication between users.
 class ChatRoom {
     constructor() {
-        this.components = [];
+        this.users = [];
     }
-    // Register a component with the mediator.
-    registerComponent(component) {
-        this.components.push(component);
+    // Register a user with the mediator.
+    registerUser(user) {
+        this.users.push(user);
     }
-    // Send a message to be displayed in the chat.
-    sendMessage(message) {
-        console.log(`Message sent: ${message}`);
-        this.updateMessageDisplay(`You: ${message}`);
-        // Trigger notification when a message is sent
-        this.sendNotification();
-    }
-    // Trigger a notification.
-    sendNotification() {
-        console.log("Notification triggered");
-        this.notifyComponents("notificationTriggered");
-        // Handle notification logic
-    }
-    // Notify all components about an event.
-    notifyComponents(event, data) {
-        this.components.forEach((component) => {
-            component.notify(event, data);
-        });
+    // Send a message from one user to another.
+    sendMessage(sender, receiver, message) {
+        // Handle message logic, such as updating chat history, etc.
+        this.updateMessageDisplay(`${sender.name}: ${message}`);
     }
     // Update the chat message display.
     updateMessageDisplay(message) {
-        console.log(`Message displayed: ${message}`);
-        // For demonstration, let's assume this method updates the UI to display the message
-        const chatMessages = document.getElementById("chat-messages");
-        const messageElement = document.createElement("div");
-        messageElement.textContent = message;
-        chatMessages === null || chatMessages === void 0 ? void 0 : chatMessages.appendChild(messageElement);
+        const chatMessages3 = document.querySelectorAll(".chat-messages");
+        chatMessages3.forEach((chatMessage) => {
+            const childElement = document.createElement("div"); // Example of child element creation
+            // Append whatever child element you want
+            childElement.textContent = message;
+            chatMessage.appendChild(childElement);
+        });
     }
 }
 // Components communicate with a mediator using the mediator
-// interface. Thanks to that, you can use the same components in
-// other contexts by linking them with different mediator
-// objects.
+// interface.
 class Component {
     constructor(mediator) {
         this.mediator = mediator;
     }
-    // Notify the mediator about an event.
-    notify(event, data) {
-        // Components can react to specific events if needed
-    }
 }
-// Concrete components don't talk to each other. They have only
-// one communication channel, which is sending notifications to
-// the mediator.
-class ChatInput extends Component {
-    constructor(mediator) {
+// Concrete components representing users in the chat room.
+class UserComponent extends Component {
+    constructor(user, chatWindowId, mediator) {
         super(mediator);
-        this.messageInput = document.getElementById("message-input");
-        this.sendButton = document.getElementById("send-button");
-        this.sendButton.addEventListener("click", this.sendMessage.bind(this));
+        this.user = user;
+        this.chatWindowId = chatWindowId;
     }
-    // User clicks send button to send a message.
-    sendMessage() {
-        const message = this.messageInput.value.trim();
-        if (message !== "") {
-            this.mediator.sendMessage(message);
-            this.messageInput.value = "";
-        }
-    }
-    // Handle events relevant to ChatInput.
-    notify(event, data) {
-        if (event === "messageReceived") {
-            // Handle message received event
-            console.log(`Message received: ${data}`);
-        }
-        // Add other event handling as needed
-    }
-}
-class NotificationButton extends Component {
-    constructor(mediator) {
-        super(mediator);
-        this.button = document.getElementById("notification-button");
-        this.button.addEventListener("click", this.click.bind(this));
-    }
-    // User clicks notification button.
-    click() {
-        console.log("Notification button clicked");
-        // Handle notification button click
-    }
-    // React to the notificationTriggered event.
-    notify(event, data) {
-        if (event === "notificationTriggered") {
-            this.showNotification();
-        }
-    }
-    // Show a notification.
-    showNotification() {
-        console.log("Notification shown");
-        // Handle notification display
+    // Send a message to another user.
+    sendMessage(receiver, message) {
+        this.mediator.sendMessage(this.user, receiver, message);
     }
 }
 // Usage
 const mediator = new ChatRoom();
-const chatInput = new ChatInput(mediator);
-const notificationButton = new NotificationButton(mediator);
-// Register the components with the mediator
-mediator.registerComponent(chatInput);
-mediator.registerComponent(notificationButton);
+// Create users
+const alice = { id: "1", name: "Alice" };
+const bob = { id: "2", name: "Bob" };
+// Register users with the mediator
+mediator.registerUser(alice);
+mediator.registerUser(bob);
+// Create user components
+const aliceComponent = new UserComponent(alice, "chat-window-1", mediator);
+const bobComponent = new UserComponent(bob, "chat-window-2", mediator);
+// Add event listeners for send buttons
+(_a = document.getElementById("send-button-1")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    const messageInput = document.getElementById("message-input-1");
+    const message = messageInput.value.trim();
+    if (message !== "") {
+        aliceComponent.sendMessage(bob, message);
+        messageInput.value = "";
+    }
+});
+(_b = document.getElementById("send-button-2")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    const messageInput = document.getElementById("message-input-2");
+    const message = messageInput.value.trim();
+    if (message !== "") {
+        bobComponent.sendMessage(alice, message);
+        messageInput.value = "";
+    }
+});

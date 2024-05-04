@@ -4,46 +4,35 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-one: #351431;
-  --color-two: #775253;
-  --color-three: #bdc696;
-  --color-four: #d1d3c4;
-  --color-five: #dfe0dc;
-}
-
-#chat {
+.chat-window {
   width: 300px;
-  margin: 0 auto;
-}
-
-#chat-messages {
-  height: 200px;
-  overflow-y: scroll;
+  margin: 20px auto;
   border: 1px solid #ccc;
   padding: 10px;
 }
 
-#chat-input {
+.chat-messages {
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.chat-input {
   margin-top: 10px;
 }
 
-#message-input {
+.message-input {
   width: 200px;
   padding: 5px;
 }
 
-#send-button {
+.send-button {
   padding: 5px 10px;
   margin-left: 5px;
 }
 
-#notification-button {
-  display: block;
-  margin-top: 10px;
-  padding: 5px 10px;
-}
-
-#user-list {
+.user-list {
   margin-top: 10px;
 }
