@@ -28,6 +28,7 @@ This repo is a collection of these patterns and a simplistic use case that highl
 18. [Chain of Responsibility Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Chain%20of%20Responsibility%20Pattern)
 19. [Mediator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Mediator%20Pattern)
 20. [Memento Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Memento%20Pattern)
+21. [Visitor Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Visitor%20Pattern)
 
 ## Description
 
