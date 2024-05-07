@@ -8,5 +8,23 @@
     <link rel="stylesheet" href="style.css" />
     <script src="./dist/visitorPattern.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1>Employee Information</h1>
+      <div class="employee" id="engineer">
+        <h2>Engineer</h2>
+        <p>Name: <span id="engineer-name"></span></p>
+        <p>Salary: <span id="engineer-salary"></span></p>
+        <p>Department: <span id="engineer-department"></span></p>
+        <button onclick="processSalary('engineer')">Process Salary</button>
+      </div>
+      <div class="employee" id="manager">
+        <h2>Manager</h2>
+        <p>Name: <span id="manager-name"></span></p>
+        <p>Salary: <span id="manager-salary"></span></p>
+        <p>Department: <span id="manager-department"></span></p>
+        <button onclick="processSalary('manager')">Process Salary</button>
+      </div>
+    </div>
+  </body>
 </html>
