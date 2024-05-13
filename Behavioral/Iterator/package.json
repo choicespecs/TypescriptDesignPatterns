@@ -1,8 +1,8 @@
 {
-  "name": "command",
+  "name": "iterator",
   "version": "1.0.0",
-  "description": "Command Pattern Example",
-  "main": "index.js",
+  "description": "Iterator Pattern Example",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
