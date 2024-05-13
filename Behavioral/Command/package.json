@@ -1,0 +1,18 @@
+{
+  "name": "command",
+  "version": "1.0.0",
+  "description": "> Encapsulate a request as an object instead, allowing you to parameterize clients with different requests, queue, or log requests and support redo and undo of requests and operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -3,9 +3,6 @@ import { ApplicationDatabase } from "./models/Database";
 import { DatabaseApplication } from "./models/DatabaseApplication";
 
 const form = document.querySelector("form");
-form?.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
 const usernameList = document.querySelector(".username-list") as HTMLElement;
 const infoList = document.querySelector(".information-list") as HTMLElement;
 const undoButton = document.querySelector(".undo-btn");
@@ -17,8 +14,8 @@ const databaseApp = new DatabaseApplication(
   new ApplicationDatabase(database, usernameList, infoList, actionList)
 );
 
-function myFunction() {
-  const form = document.querySelector("form")!;
+form?.addEventListener("submit", (e) => {
+  e.preventDefault();
   const elements = form.elements!;
   curr_id += 1;
   const data = {
@@ -27,7 +24,7 @@ function myFunction() {
     information: (elements[1] as HTMLFormElement).value.toString(),
   };
   databaseApp.insert(data);
-}
+});
 
 undoButton?.addEventListener("click", () => {
   databaseApp.undo();
