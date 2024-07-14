@@ -1,15 +1,3 @@
-// Define a User interface representing users who will send messages
-interface User {
-  id: string;
-  name: string;
-}
-
-// The mediator interface declares methods used by components
-// to interact with each other.
-interface ChatMediator {
-  sendMessage(sender: User, receiver: User, message: string): void;
-}
-
 // Concrete mediator class that manages communication between users.
 class ChatRoom implements ChatMediator {
   private users: User[] = [];

@@ -44,8 +44,5 @@ Readme will include detailed information on the pattern, files should be executa
 Install Dependencies
 `npm install`
 
-Build & Bundle files
-`webpack`
-
-Run Example
-`live-server`
+Build & Run server
+`npm start`
