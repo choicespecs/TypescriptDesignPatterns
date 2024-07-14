@@ -44,5 +44,8 @@ Readme will include detailed information on the pattern, files should be executa
 Install Dependencies
 `npm install`
 
-Build & Run server
+Build package
+`npm run build`
+
+Run server
 `npm start`
