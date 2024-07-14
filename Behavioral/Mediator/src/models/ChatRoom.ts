@@ -5,7 +5,7 @@ import { ChatMediator } from "./ChatMediator";
 export class ChatRoom implements ChatMediator {
   private users: User[] = [];
 
-  constructor(private chatMessages: NodeListOf<HTMLElement>) {}
+  constructor(private chatMessages: NodeListOf<Element>) {}
 
   // Register a user with the mediator.
   registerUser(user: User) {

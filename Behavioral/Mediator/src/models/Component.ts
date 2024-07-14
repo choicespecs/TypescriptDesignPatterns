@@ -12,12 +12,10 @@ abstract class Component {
 // Concrete components representing users in the chat room.
 export class UserComponent extends Component {
   private user: User;
-  private chatWindowId: string;
 
-  constructor(user: User, chatWindowId: string, mediator: ChatMediator) {
+  constructor(user: User, mediator: ChatMediator) {
     super(mediator);
     this.user = user;
-    this.chatWindowId = chatWindowId;
   }
 
   // Send a message to another user.

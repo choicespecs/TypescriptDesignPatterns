@@ -1,8 +1,10 @@
-import { ChatRoom } from './models/ChatRoom'
-import { User } from './models/User';
+import { ChatRoom } from "./models/ChatRoom";
+import { User } from "./models/User";
+import { UserComponent } from "./models/Component";
 
 // Usage
-const mediator = new ChatRoom();
+const chatMessages = document.querySelectorAll(".chat-message");
+const mediator = new ChatRoom(chatMessages);
 
 // Create users
 const alice: User = { id: "1", name: "Alice" };
@@ -13,8 +15,8 @@ mediator.registerUser(alice);
 mediator.registerUser(bob);
 
 // Create user components
-const aliceComponent = new UserComponent(alice, "chat-window-1", mediator);
-const bobComponent = new UserComponent(bob, "chat-window-2", mediator);
+const aliceComponent = new UserComponent(alice, mediator);
+const bobComponent = new UserComponent(bob, mediator);
 
 // Add event listeners for send buttons
 document.getElementById("send-button-1")?.addEventListener("click", () => {
@@ -37,3 +39,4 @@ document.getElementById("send-button-2")?.addEventListener("click", () => {
     bobComponent.sendMessage(alice, message);
     messageInput.value = "";
   }
+});
