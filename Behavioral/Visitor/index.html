@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Visitor Pattern</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="./dist/visitorPattern.js" defer></script>
+    <script defer="defer" src="dist/index.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,14 +16,14 @@
         <p>Name: <span id="engineer-name"></span></p>
         <p>Salary: <span id="engineer-salary"></span></p>
         <p>Department: <span id="engineer-department"></span></p>
-        <button onclick="processSalary('engineer')">Process Salary</button>
+        <button id="process-engineer-salary">Process Salary</button>
       </div>
       <div class="employee" id="manager">
         <h2>Manager</h2>
         <p>Name: <span id="manager-name"></span></p>
         <p>Salary: <span id="manager-salary"></span></p>
         <p>Department: <span id="manager-department"></span></p>
-        <button onclick="processSalary('manager')">Process Salary</button>
+        <button id="process-manager-salary">Process Salary</button>
       </div>
     </div>
   </body>
