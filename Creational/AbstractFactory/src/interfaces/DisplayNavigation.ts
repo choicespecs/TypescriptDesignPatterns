@@ -1,0 +1,3 @@
+interface DisplayNavigation {
+  display(): void;
+}

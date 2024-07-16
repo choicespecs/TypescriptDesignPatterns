@@ -1,0 +1,3 @@
+interface DisplayWindow {
+  display(): void;
+}
