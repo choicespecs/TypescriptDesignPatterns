@@ -1,4 +1,4 @@
-import { Payment } from "./Payment";
+import { Payment } from "../interfaces/Payment";
 
 // User.ts
 export class User {

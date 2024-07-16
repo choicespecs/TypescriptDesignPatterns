@@ -1,13 +1,5 @@
-export type Data = {
-  id: number;
-  username: string;
-  information: string;
-};
-
-export interface Database {
-  insert(data: Data): void;
-  delete(data: Data): void;
-}
+import { Database } from "../interfaces/Database";
+import { Data } from "../types/Data";
 
 export class ApplicationDatabase implements Database {
   constructor(

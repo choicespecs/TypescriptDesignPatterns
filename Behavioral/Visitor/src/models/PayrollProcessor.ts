@@ -1,7 +1,7 @@
 // PayrollProcessor.ts
-import { Employee } from "./Employee";
-import { EmployeeVisitor } from "./EmployeeVisitor";
-import { Manager } from "./Employees";
+import { Employee } from "../interfaces/Employee";
+import { EmployeeVisitor } from "../interfaces/EmployeeVisitor";
+import { Manager } from "./Manager";
 
 export class PayrollProcessor implements EmployeeVisitor {
   visit(employee: Employee): void {

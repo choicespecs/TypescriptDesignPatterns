@@ -1,5 +1,5 @@
-import { User } from "./User";
-import { ChatMediator } from "./ChatMediator";
+import { User } from "../interfaces/User";
+import { ChatMediator } from "../interfaces/ChatMediator";
 
 // Concrete mediator class that manages communication between users.
 export class ChatRoom implements ChatMediator {

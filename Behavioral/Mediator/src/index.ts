@@ -1,6 +1,6 @@
 import { ChatRoom } from "./models/ChatRoom";
-import { User } from "./models/User";
-import { UserComponent } from "./models/Component";
+import { User } from "./interfaces/User";
+import { UserComponent } from "./models/UserComponent";
 
 // Usage
 const chatMessages = document.querySelectorAll(".chat-message");

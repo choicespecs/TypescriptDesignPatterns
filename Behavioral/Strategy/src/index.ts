@@ -1,11 +1,9 @@
 // app.ts
 import { User } from "./models/User";
-import {
-  Payment,
-  CreditCardPayment,
-  PaypalPayment,
-  BankPayment,
-} from "./models/Payment";
+import { Payment } from "./interfaces/Payment";
+import { CreditCardPayment } from "./models/CreditCardPayment";
+import { PaypalPayment } from "./models/PaypalPayment";
+import { BankPayment } from "./models/BankPayment";
 
 const user1 = new User(2000, "123", "string_cheese");
 

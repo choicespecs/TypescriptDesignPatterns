@@ -1,5 +1,5 @@
-import { Subject } from "./Subject";
-import { Observer } from "./Observer";
+import { Subject } from "../interfaces/Subject";
+import { Observer } from "../interfaces/Observer";
 
 export class Log implements Subject {
   ObserverList: Observer[] = [];

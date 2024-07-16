@@ -1,4 +1,4 @@
-import { State } from "./State";
+import { State } from "../interfaces/State";
 import { Silver } from "./Silver";
 
 export class Account {

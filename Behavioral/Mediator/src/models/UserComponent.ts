@@ -1,13 +1,6 @@
-import { ChatMediator } from "./ChatMediator";
-import { User } from "./User";
-
-abstract class Component {
-  protected mediator: ChatMediator;
-
-  constructor(mediator: ChatMediator) {
-    this.mediator = mediator;
-  }
-}
+import { ChatMediator } from "../interfaces/ChatMediator";
+import { User } from "../interfaces/User";
+import { Component } from "../interfaces/Component";
 
 // Concrete components representing users in the chat room.
 export class UserComponent extends Component {

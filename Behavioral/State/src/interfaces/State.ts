@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "../models/Account";
 
 export abstract class State {
   protected _account: Account;

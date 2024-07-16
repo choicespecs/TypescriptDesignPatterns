@@ -1,5 +1,5 @@
-import BaseHandler from "./BaseHandler";
-import ValidationInput from "./ValidationInput";
+import BaseHandler from "../interfaces/BaseHandler";
+import ValidationInput from "../interfaces/ValidationInput";
 
 class RequiredFieldHandler extends BaseHandler {
   private field: keyof ValidationInput;

@@ -1,5 +1,5 @@
-import { Data } from "./models/Database";
-import { ApplicationDatabase } from "./models/Database";
+import { Data } from "./models/ApplicationDatabase";
+import { ApplicationDatabase } from "./models/ApplicationDatabase";
 import { DatabaseApplication } from "./models/DatabaseApplication";
 
 const form = document.querySelector("form");

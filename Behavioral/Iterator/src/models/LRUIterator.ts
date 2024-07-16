@@ -1,14 +1,6 @@
 import { LRUCache } from "./LRUCache";
 import { LRUNode } from "./LRUNode";
-
-export interface LRUIterator {
-  reset(): void;
-  lru(): LRUNode | null;
-  mru(): LRUNode | null;
-  next(): LRUNode | null;
-  getCurrent(): LRUNode | null;
-  hasNext(): boolean;
-}
+import { LRUIterator } from "../interfaces/LRUIterator";
 
 export class LRUconcreteIterator implements LRUIterator {
   private current: LRUNode | null;

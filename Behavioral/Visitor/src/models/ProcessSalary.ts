@@ -1,6 +1,7 @@
-import { Engineer, Manager } from "./Employees";
+import { Manager } from "./Manager";
 import { PayrollProcessor } from "./PayrollProcessor";
-import { Employee } from "./Employee";
+import { Employee } from "../interfaces/Employee";
+import { Engineer } from "./Engineer";
 
 export function processSalary(employeeId: string): void {
   let employee: Employee;

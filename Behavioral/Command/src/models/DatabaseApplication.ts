@@ -1,5 +1,8 @@
-import { Data, ApplicationDatabase } from "./Database";
-import { Command, InsertDatabase, DeleteDatabase } from "./Command";
+import { ApplicationDatabase } from "./ApplicationDatabase";
+import { Command } from "../interfaces/Command";
+import { Data } from "../types/Data";
+import { DeleteDatabase } from "./DeleteDatabase";
+import { InsertDatabase } from "./InsertDatabase";
 
 export class DatabaseApplication {
   private commandList: Command[] = [];

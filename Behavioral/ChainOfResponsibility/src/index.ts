@@ -1,4 +1,4 @@
-import ValidationInput from "./models/ValidationInput";
+import ValidationInput from "./interfaces/ValidationInput";
 import RequiredFieldHandler from "./models/RequiredFieldHandler";
 import EmailFormatHandler from "./models/EmailFormatHandler";
 import PasswordFormatHandler from "./models/PasswordFormatHandler";

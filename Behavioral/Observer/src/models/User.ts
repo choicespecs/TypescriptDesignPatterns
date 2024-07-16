@@ -1,4 +1,4 @@
-import { Observer } from "./Observer";
+import { Observer } from "../interfaces/Observer";
 import { Log } from "./Log";
 
 export class User implements Observer {

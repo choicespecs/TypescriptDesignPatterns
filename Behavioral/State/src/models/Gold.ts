@@ -1,4 +1,4 @@
-import { State } from "./State";
+import { State } from "../interfaces/State";
 import { Red } from "./Red";
 import { Silver } from "./Silver";
 
