@@ -1,3 +1,3 @@
-interface DisplayWindow {
+export interface DisplayWindow {
   display(): void;
 }

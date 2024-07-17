@@ -1,3 +1,3 @@
-interface DisplayNavigation {
+export interface DisplayNavigation {
   display(): void;
 }
