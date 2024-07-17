@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Builder Pattern: Example</title>
-    <script src="./dist/builderPattern.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,9 +21,9 @@
           <form id="widget-creator" class="form-item" onsubmit="myFunction()">
             <div class="form-inputs">
               <label for="title">Title:</label>
-              <input type="text" name="title">
+              <input type="text" name="title" />
               <label for="content">Content:</label>
-              <input type="text" name="content">
+              <input type="text" name="content" />
               <label for="font">Font Family:</label>
               <select id="font" name="font">
                 <option value=""></option>
@@ -49,14 +48,14 @@
                 <option value="red">Red</option>
               </select>
               <label for="size">Size (100 - 1000):</label>
-              <input type="number" name="size" min="100" max="1000">
+              <input type="number" name="size" min="100" max="1000" />
               <span>Text Align:</span>
               <div class="radio-buttons">
-                <input type="radio" name="text_align" value="left">
+                <input type="radio" name="text_align" value="left" />
                 <label for="left">Left</label>
-                <input type="radio" name="text_align" value="center">
+                <input type="radio" name="text_align" value="center" />
                 <label for="center">Center</label>
-                <input type="radio" name="text_align" value="right">
+                <input type="radio" name="text_align" value="right" />
                 <label for="right">Right</label>
               </div>
             </div>
@@ -65,7 +64,7 @@
         </div>
         <div class="section">
           <div class="dashboard-banner">
-            <h2>Dashboard: </h2>
+            <h2>Dashboard:</h2>
           </div>
           <div id="dashboard"></div>
         </div>
