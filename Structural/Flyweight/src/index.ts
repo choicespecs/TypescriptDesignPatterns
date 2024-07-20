@@ -1,10 +1,5 @@
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  imageSrc: string;
-}
-
+import { Product } from "./Interfaces/Product";
+import { ImageFactory } from "./models/ImageFactory";
 // Mock product data (simulating data fetched from server)
 const products: Product[] = [
   {
@@ -26,20 +21,6 @@ const products: Product[] = [
     imageSrc: "../images/product3.jpeg",
   },
 ];
-
-// Flyweight factory for managing image resources
-class ImageFactory {
-  private imageCache: Map<string, HTMLImageElement> = new Map();
-
-  getImage(src: string): HTMLImageElement {
-    if (!this.imageCache.has(src)) {
-      const img = new Image();
-      img.src = src;
-      this.imageCache.set(src, img);
-    }
-    return this.imageCache.get(src)!;
-  }
-}
 
 // Render product catalog
 function renderProduct(product: Product, parentElement: HTMLElement) {
