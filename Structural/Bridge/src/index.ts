@@ -1,76 +1,10 @@
-interface SampleNotification {
-  send(message: string): void;
-}
-
-interface NotificationDisplay {
-  display(message: string): void;
-}
-
-class EmailNotification implements SampleNotification {
-  send(message: string): void {
-    console.log(`-=Sending email notification=-`);
-    console.log("");
-    console.log(`To: Everyone`);
-    console.log(`From: Your favorite developer`);
-    console.log(`Subject: Got big news to tell you`);
-    console.log(`Body: ${message}`);
-    console.log("");
-    console.log(`-=Email sent successfully=-`);
-  }
-}
-
-class SMSNotification implements SampleNotification {
-  send(message: string): void {
-    console.log(`-=Sending SMS notification=-`);
-    console.log("");
-    console.log(`To: 555-555-555`);
-    console.log(`From: 000-000-000`);
-    console.log(`Message: ${message}`);
-    console.log("");
-    console.log("-=SMS sent successfully!=-");
-  }
-}
-
-class ModalNotificationDisplay implements NotificationDisplay {
-  display(message: string): void {
-    const modal = document.getElementById("modal")!;
-    const modalMessage = document.getElementById("modal-message")!;
-    modalMessage.textContent = message;
-    modal.style.display = "block";
-  }
-}
-
-class ToastNotificationDisplay implements NotificationDisplay {
-  display(message: string): void {
-    const toastContainer = document.querySelector(".toast-container")!;
-    const toast = document.createElement("div");
-    toast.classList.add("toast");
-    toast.textContent = message;
-    toastContainer.appendChild(toast);
-
-    setTimeout(() => {
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-        setTimeout(() => {
-          toast.remove();
-        }, 500);
-      }, 3000);
-    }, 100);
-  }
-}
-
-class NotificationBridge {
-  constructor(
-    private notification: SampleNotification,
-    private display: NotificationDisplay
-  ) {}
-
-  sendAndDisplay(message: string): void {
-    this.notification.send(message);
-    this.display.display(message);
-  }
-}
+import { SampleNotification } from "./interfaces/SampleNotification";
+import { NotificationDisplay } from "./interfaces/NotificationDisplay";
+import { EmailNotification } from "./models/EmailNotificvation";
+import { SMSNotification } from "./models/SMSNotification";
+import { ToastNotificationDisplay } from "./models/ToastNotificationDisplay";
+import { ModalNotificationDisplay } from "./models/ModalNotificationDisplay";
+import { NotificationBridge } from "./models/NotificationBridge";
 
 let notificationType: SampleNotification | null = null;
 let displayingType: NotificationDisplay | null = null;
