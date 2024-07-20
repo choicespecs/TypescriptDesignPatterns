@@ -8,27 +8,35 @@ This repo is a collection of these patterns and a simplistic use case that highl
 
 ## Index
 
-1. [Strategy Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Strategy%20Pattern)
-2. [Observer Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Observer%20Pattern)
-3. [Decorator Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Decorator%20Pattern)
-4. [Factory Method Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Factory%20Method%20Pattern)
-5. [Abstract Factory Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Abstract%20Factory%20Pattern)
-6. [Command Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Command%20Pattern)
-7. [Adapter Pattern](https://github.com/christophermlee2/TypescriptDesignPatterns/tree/main/Adapter%20Pattern)
-8. [Facade Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Facade%20Pattern)
-9. [Template Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Template%20Method)
-10. [Iterator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Iterator%20Pattern)
-11. [Composite Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Composite%20Pattern)
-12. [State Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/State%20Pattern)
-13. [Proxy Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Proxy%20Pattern)
-14. [Builder Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Builder%20Pattern)
-15. [Prototype Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Prototype%20Pattern)
-16. [Bridge Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Bridge%20Pattern)
-17. [Flyweight Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Flyweight%20Pattern)
-18. [Chain of Responsibility Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Chain%20of%20Responsibility%20Pattern)
-19. [Mediator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Mediator%20Pattern)
-20. [Memento Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Memento%20Pattern)
-21. [Visitor Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Visitor%20Pattern)
+### [Behavioral](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral)
+
+1. [Chain of Responsibility Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/ChainOfResponsibility)
+2. [Command Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Command)
+3. [Iterator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Iterator)
+4. [Mediator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Mediator)
+5. [Memento Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Memento)
+6. [Observer Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Observer)
+7. [State Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/State)
+8. [Strategy Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Strategy)
+9. [Template Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Template)
+10. [Visitor Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Behavioral/Visitor)
+
+### [Creational](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Creational)
+
+1. [Abstract Factory Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Creational/AbstractFactory)
+2. [Builder Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Creational/Builder)
+3. [Factory Method Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Creational/FactoryMethod)
+4. [Prototype Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Creational/Prototype)
+
+### [Structural](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural)
+
+1. [Adapter Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Adapter)
+2. [Bridge Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Bridge)
+3. [Composite Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Composite)
+4. [Decorator Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Decorator)
+5. [Facade Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Facade)
+6. [Proxy Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Proxy)
+7. [Flyweight Pattern](https://github.com/choicespecs/TypescriptDesignPatterns/tree/main/Structural/Flyweight)
 
 ## Description
 
