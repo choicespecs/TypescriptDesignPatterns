@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstract Factory Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="window">
+      <div class="sidebar">
+        <div class="theme-name">
+          <h3>Current Theme</h3>
+          <p class="theme-name-part">none</p>
+          <button class="change-theme-button">Change Theme</button>
+        </div>
+        <div class="theme-buttons">
+          <button class="nav-button" style="background-color: red">
+            Add Navigation
+          </button>
+          <button class="window-button" style="background-color: red">
+            Add Window
+          </button>
+          <button class="content-button" style="background-color: red">
+            Add Content
+          </button>
+          <button class="reset-button" style="background-color: red">
+            Reset
+          </button>
+        </div>
+        <div class="action-wrapper">
+          <p>Actions:</p>
+          <ul class="actions"></ul>
+        </div>
+      </div>
+      <div class="theme-wrapper">
+        <div class="theme">
+          <nav class="theme-nav"></nav>
+          <div class="theme-content"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

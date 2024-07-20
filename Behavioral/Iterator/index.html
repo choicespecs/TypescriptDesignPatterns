@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" context="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iterator Pattern: Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="input-screen">
+      <div class="window">
+        <nav></nav>
+        <form class="lru-capacity">
+          <label for="capacity">Capacity:</label>
+          <input type="text" name="capacity" />
+          <button type="submit">Submit</button>
+        </form>
+        <div class="visual-linked-list">
+          <div class="info-screen"></div>
+          <div class="current-get-lru"></div>
+          <div class="current-lru"></div>
+          <div class="current-mru"></div>
+          <div class="linked-list"></div>
+        </div>
+        <form class="lru-add-form">
+          <label for="lru-key">key:</label>
+          <input class="lru-key" type="text" name="lru-key" />
+          <label for="lru-value">value:</label>
+          <input class="lru-value" type="text" name="lru-value" />
+          <button type="submit">Add</button>
+        </form>
+        <form class="lru-get-form">
+          <label for="lru-get-key">key:</label>
+          <input class="lru-get-key" type="text" name="lru-get-key" />
+          <button type="submit">get</button>
+        </form>
+        <div class="buttons-location">
+          <button class="print">PRINT CURRENT CACHE</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

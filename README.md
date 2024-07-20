@@ -41,4 +41,11 @@ Readme will include detailed information on the pattern, files should be executa
 
 ## Instructions
 
-You can run the index.html files within each pattern and the readme will provide some detailed information for the design pattern. I've also included a Youtube video which will run through the example given and more information on the design pattern.
+Install Dependencies
+`npm install`
+
+Build package
+`npm run build`
+
+Run server
+`npm start`

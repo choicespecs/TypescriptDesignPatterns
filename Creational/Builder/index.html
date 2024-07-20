@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Builder Pattern: Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="window">
+      <nav></nav>
+      <div class="section-container">
+        <div class="section">
+          <div class="error-display">
+            <p>ERROR: All Fields must be filled out</p>
+          </div>
+          <div class="success-display">
+            <p>Created a new Dashboard Widget</p>
+          </div>
+          <form id="widget-creator" class="form-item" onsubmit="myFunction()">
+            <div class="form-inputs">
+              <label for="title">Title:</label>
+              <input type="text" name="title" />
+              <label for="content">Content:</label>
+              <input type="text" name="content" />
+              <label for="font">Font Family:</label>
+              <select id="font" name="font">
+                <option value=""></option>
+                <option value="Andale&nbsp;Mono">Andale Mono</option>
+                <option value="sans-serif">Sans Serif</option>
+                <option value="monospace">Monospace</option>
+                <option value="cursive">Cursive</option>
+              </select>
+              <label for="color">Background Color:</label>
+              <select id="color" name="color">
+                <option value=""></option>
+                <option value="white">White</option>
+                <option value="beige">Beige</option>
+                <option value="lightgrey">Light Grey</option>
+                <option value="lightblue">Light blue</option>
+              </select>
+              <label for="font-color">Font Color:</label>
+              <select id="font-color" name="font-color">
+                <option value=""></option>
+                <option value="black">Black</option>
+                <option value="navy">Navy</option>
+                <option value="red">Red</option>
+              </select>
+              <label for="size">Size (100 - 1000):</label>
+              <input type="number" name="size" min="100" max="1000" />
+              <span>Text Align:</span>
+              <div class="radio-buttons">
+                <input type="radio" name="text_align" value="left" />
+                <label for="left">Left</label>
+                <input type="radio" name="text_align" value="center" />
+                <label for="center">Center</label>
+                <input type="radio" name="text_align" value="right" />
+                <label for="right">Right</label>
+              </div>
+            </div>
+            <button type="submit">Add Widget</button>
+          </form>
+        </div>
+        <div class="section">
+          <div class="dashboard-banner">
+            <h2>Dashboard:</h2>
+          </div>
+          <div id="dashboard"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
