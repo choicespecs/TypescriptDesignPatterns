@@ -16,9 +16,10 @@ export class NotificationBridge {
     private display: NotificationDisplay       // Implementation side of the bridge
   ) {}
 
-  /** Calls send() on the Abstraction side and display() on the Implementation side — the bridge in action. */
+  /** Calls send() on the Abstraction side and display() on the Implementation side — the bridge in action.
+   *  The channel from the Abstraction is forwarded to display() so the Implementation can style itself accordingly. */
   sendAndDisplay(message: string): void {
     this.notification.send(message);
-    this.display.display(message);
+    this.display.display(message, this.notification.channel);
   }
 }

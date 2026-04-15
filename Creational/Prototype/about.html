@@ -4,12 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        background: #0d0d12;
+        color: #e4e4ef;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.75rem;
+        gap: 1.5rem;
+      }
+
+      .page-badge {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(16,185,129,0.12);
+        color: #6ee7b7;
+        border: 1px solid rgba(16,185,129,0.25);
+        width: fit-content;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f1f1f8;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      .divider {
+        height: 1px;
+        background: rgba(255,255,255,0.07);
+      }
+
+      .team-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .team-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: #16161f;
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 10px;
+        padding: 0.85rem 1rem;
+      }
+
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(16,185,129,0.15);
+        border: 1px solid rgba(16,185,129,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .team-info { display: flex; flex-direction: column; gap: 0.15rem; }
+      .team-name { font-size: 0.875rem; font-weight: 600; color: #d1d5db; }
+      .team-role { font-size: 0.75rem; color: #4b5563; }
+
+      .note {
+        font-size: 0.75rem;
+        color: #374151;
+        font-style: italic;
+        margin-top: auto;
+      }
+    </style>
   </head>
   <body>
+    <span class="page-badge">👤 About</span>
     <h1>About Us</h1>
-    <p>
-      Welcome to our website! We are a company dedicated to providing
-      high-quality services.
+    <p class="subtitle">
+      We build thoughtful software with a focus on clean architecture and well-understood patterns.
+      This page was navigated to via a cloned <code style="color:#6ee7b7">MenuItem</code> — the same
+      prototype was the source of both nav items.
     </p>
+
+    <div class="divider"></div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">👩‍💻</div>
+        <div class="team-info">
+          <span class="team-name">Alice Chen</span>
+          <span class="team-role">Lead Engineer</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="avatar">🧑‍🎨</div>
+        <div class="team-info">
+          <span class="team-name">Marco Rivera</span>
+          <span class="team-role">Design Systems</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="avatar">👨‍🔬</div>
+        <div class="team-info">
+          <span class="team-name">Sam Park</span>
+          <span class="team-role">Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Prototype Pattern demo — this page was reached via a cloned MenuItem object</p>
   </body>
 </html>

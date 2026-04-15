@@ -4,21 +4,33 @@
 import { MediaPlayer } from "../../interfaces/media/MediaPlayer";
 import { MediaAdapter } from "./MediaAdapter";
 
+export interface PlayResult {
+  message: string;
+  usedAdapter: boolean;
+  adapteeClass?: string;
+  adapterMethod?: string;
+}
+
 /**
  * Client-facing class that implements the Target interface (MediaPlayer).
  * Handles .txt files natively and delegates youtube/mp4 to a MediaAdapter,
  * so the caller always uses the same play() signature regardless of media type.
  */
 export class AudioTextReader implements MediaPlayer {
-  private mediaAdapter: MediaAdapter;
+  private lastAdapter: MediaAdapter | null = null;
 
-  play(audioType: string, fileName: string) {
+  play(audioType: string, fileName: string): string {
     if (audioType === "txt") {
-      console.log(`Reading txt ${fileName}`); // Handled directly — no adapter needed
+      this.lastAdapter = null;
+      return `AudioTextReader reads "${fileName}" directly — no adapter needed`;
     } else {
       // Create an Adapter for incompatible media types and delegate through it
-      this.mediaAdapter = new MediaAdapter(audioType);
-      this.mediaAdapter.play(audioType, fileName);
+      this.lastAdapter = new MediaAdapter(audioType);
+      return this.lastAdapter.play(audioType, fileName);
     }
+  }
+
+  getLastAdapter(): MediaAdapter | null {
+    return this.lastAdapter;
   }
 }

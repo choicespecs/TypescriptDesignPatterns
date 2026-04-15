@@ -137,3 +137,33 @@ body {
   padding: 0.15rem 0.4rem;
   margin-top: 0.3rem;
 }
+
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.62rem;
+  color: #6b7280;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.cache-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  font-size: 0.78rem;
+  color: #6b7280;
+  padding: 0.65rem 1rem;
+  background: rgba(245,158,11,0.04);
+  border: 1px solid rgba(245,158,11,0.12);
+  border-radius: 8px;
+}
+
+.cache-stats strong { color: #fcd34d; }
+.cache-stats .saved strong { color: #34d399; }
+.stat-divider { color: #374151; }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adapter Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="pattern-header">
+      <span class="pattern-badge">Structural</span>
+      <h1 class="pattern-title">Adapter Pattern</h1>
+      <p class="pattern-desc">Translate an incompatible interface — client always calls <code>play()</code> regardless of the underlying player</p>
+    </header>
+
+    <div class="pattern-flow">
+      <div class="flow-node">AudioTextReader<br /><span>Client / Target</span></div>
+      <div class="flow-arrow">→ play() →</div>
+      <div class="flow-node highlight">MediaAdapter<br /><span>Adapter</span></div>
+      <div class="flow-arrow">→ playVid / playMusic →</div>
+      <div class="flow-node">YouTube / Mp4<br /><span>Adaptee</span></div>
+    </div>
+
+    <main class="demo">
+      <div class="demo-layout">
+
+        <div class="file-panel card">
+          <div class="panel-header">
+            <span class="panel-title">Media Library</span>
+            <span class="panel-hint">Click Play to see the adapter in action</span>
+          </div>
+          <div id="file-list" class="file-list"></div>
+        </div>
+
+        <div id="call-chain-panel" class="chain-panel card">
+          <div class="chain-placeholder">
+            <span class="placeholder-icon">▶</span>
+            <span class="placeholder-text">Play a file to see the call chain</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>

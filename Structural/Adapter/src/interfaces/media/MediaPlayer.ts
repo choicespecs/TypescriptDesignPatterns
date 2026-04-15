@@ -8,5 +8,5 @@
  */
 export interface MediaPlayer {
   /** Unified play method: the target API that the client code depends on. */
-  play(mediaType: string, fileName: string): void;
+  play(mediaType: string, fileName: string): string;
 }

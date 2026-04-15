@@ -6,7 +6,11 @@ import { Weapon } from "../interfaces/Weapon";
 import { WeaponDecorator } from "../interfaces/WeaponDecorator";
 
 // Defined here (not in index.ts) so this module is self-contained
-const MOD_ARRAY = ["Poison", "Fire", "Ice"];
+const ELEMENTS: { name: string; baseDamage: number }[] = [
+  { name: "Poison", baseDamage: 8  },
+  { name: "Fire",   baseDamage: 12 },
+  { name: "Ice",    baseDamage: 6  },
+];
 
 function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);
@@ -16,8 +20,8 @@ function getRandomInt(min: number, max: number) {
 
 /**
  * Concrete Decorator — appends a randomly chosen elemental modifier to the weapon's mod string.
- * The bonus damage is 5% of the current wrapped weapon's damage, making order of wrapping matter:
- * wrapping DamageUpgrade first yields a higher mod bonus than wrapping ModUpgrade first.
+ * Each element has a fixed base damage so the modifier is always non-zero even if no
+ * DamageUpgrade has been applied. Stacking multiple ModUpgrades appends additional elements.
  */
 export class ModUpgrade extends WeaponDecorator {
   constructor(weapon: Weapon) {
@@ -32,11 +36,9 @@ export class ModUpgrade extends WeaponDecorator {
     return this.weapon.getSpecial();
   }
 
-  // Augmented: picks a random element and appends "<element> <5%-damage-bonus>" to the mod string
+  // Augmented: picks a random element and appends "<element> +<damage>" to the mod string
   getMod() {
-    const index = getRandomInt(0, 2);
-    const weaponMod = MOD_ARRAY[index]; // Random elemental type from the shared array
-    const modDamage = 0.05 * this.weapon.getDamage(); // Bonus scales with current damage
-    return this.weapon.getMod() + ` ${weaponMod} ${modDamage} `;
+    const element = ELEMENTS[getRandomInt(0, ELEMENTS.length - 1)];
+    return this.weapon.getMod() + ` ${element.name} +${element.baseDamage} `;
   }
 }

@@ -9,9 +9,11 @@ import { AdvancedMediaPlayer } from "../../interfaces/media/AdvancedMediaPlayer"
  * playMusic() is intentionally a no-op — YouTubePlayer handles video, not audio.
  */
 export class YouTubePlayer implements AdvancedMediaPlayer {
-  playVid(fileName: string) {
-    console.log(`opened youtube video: ${fileName}`);
+  playVid(fileName: string): string {
+    return `YouTubePlayer.playVid("${fileName}") — streaming video`;
   }
 
-  playMusic(fileName: string): void {} // No-op: YouTubePlayer handles video, not audio
+  playMusic(fileName: string): string {
+    return ""; // No-op: YouTubePlayer handles video, not audio
+  }
 }

@@ -25,8 +25,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html", // Reference index.html in the root directory
-      filename: "../index.html", // Output index.html in the root directory
+      template: "./src/template.html",
+      filename: "../index.html",
     }),
   ],
   devServer: {

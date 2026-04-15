@@ -1,6 +1,4 @@
 // Bridge Pattern — Entry point / client
-// Lets the user independently select a notification type and display type,
-// then assembles them into a NotificationBridge at click time.
 
 import { SampleNotification } from "./interfaces/SampleNotification";
 import { NotificationDisplay } from "./interfaces/NotificationDisplay";
@@ -10,111 +8,85 @@ import { ToastNotificationDisplay } from "./models/ToastNotificationDisplay";
 import { ModalNotificationDisplay } from "./models/ModalNotificationDisplay";
 import { NotificationBridge } from "./models/NotificationBridge";
 
-// These hold the current Abstraction and Implementation selections independently
 let notificationType: SampleNotification | null = null;
 let displayingType: NotificationDisplay | null = null;
 
-const emailButton = document.getElementById("email-button")!;
-const smsButton = document.getElementById("sms-button")!;
-const notifyWindow: HTMLElement = document.querySelector(".notify-window")!;
-const notifyType = document.getElementById("notification-type")!;
+const emailButton      = document.getElementById("email-button")!;
+const smsButton        = document.getElementById("sms-button")!;
+const notifyWindow     = document.querySelector<HTMLElement>(".notify-window")!;
+const notifyType       = document.getElementById("notification-type")!;
+const toastButton      = document.getElementById("toast-button")!;
+const modalButton      = document.getElementById("modal-button")!;
+const notifyDispWindow = document.querySelector<HTMLElement>(".display-notify-window")!;
+const displayType      = document.getElementById("display-type")!;
 
-// Selecting the Abstraction side — independent of the display choice
-emailButton.addEventListener("click", function () {
+// ── Abstraction selection ──────────────────────────────────────────────────────
+
+emailButton.addEventListener("click", () => {
   notifyWindow.style.display = "none";
-  notifyType.innerHTML = ": Email";
+  notifyType.textContent = ": Email";
   notificationType = new EmailNotification();
 });
 
-smsButton.addEventListener("click", function () {
+smsButton.addEventListener("click", () => {
   notifyWindow.style.display = "none";
-  notifyType.innerHTML = ": SMS";
+  notifyType.textContent = ": SMS";
   notificationType = new SMSNotification();
 });
 
-const notifyDisplayWindow: HTMLElement = document.querySelector(
-  ".display-notify-window"
-)!;
-const toastButton = document.getElementById("toast-button")!;
-const modalButton = document.getElementById("modal-button")!;
-const displayType = document.getElementById("display-type")!;
+// ── Implementation selection ───────────────────────────────────────────────────
 
-// Selecting the Implementation side — independent of the notification type choice
-toastButton.addEventListener("click", function () {
-  notifyDisplayWindow.style.display = "none";
-  displayType.innerHTML = ": Toast";
+toastButton.addEventListener("click", () => {
+  notifyDispWindow.style.display = "none";
+  displayType.textContent = ": Toast";
   displayingType = new ToastNotificationDisplay();
 });
 
-modalButton.addEventListener("click", function () {
-  notifyDisplayWindow.style.display = "none";
-  displayType.innerHTML = ": Modal";
+modalButton.addEventListener("click", () => {
+  notifyDispWindow.style.display = "none";
+  displayType.textContent = ": Modal";
   displayingType = new ModalNotificationDisplay();
 });
 
-const modal = document.getElementById("modal")!;
-const modalMessage = document.getElementById("modal-message")!;
-const modalClose = document.querySelector(".modal-close")!;
+// ── Modal close ────────────────────────────────────────────────────────────────
 
-function closeModal() {
-  modal.style.display = "none";
+const modalOverlay = document.getElementById("modal-overlay")!;
+const modalCloseBtn = document.getElementById("modal-close-btn")!;
+
+function closeModal(): void {
+  modalOverlay.classList.add("hidden");
 }
 
-modalClose.addEventListener("click", closeModal);
+modalCloseBtn.addEventListener("click", closeModal);
+modalOverlay.addEventListener("click", e => { if (e.target === modalOverlay) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
-window.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    closeModal();
-  }
+// ── Send & Display ─────────────────────────────────────────────────────────────
+
+const sendButton  = document.getElementById("create-message")!;
+const resetButton = document.getElementById("reset")!;
+
+sendButton.addEventListener("click", () => {
+  if (!notificationType || !displayingType) return;
+  const input = document.getElementById("message") as HTMLInputElement;
+  const bridge = new NotificationBridge(notificationType, displayingType);
+  bridge.sendAndDisplay(input.value);
+  resetButton.style.display = "inline-block";
 });
 
-const sendAndDisplayButton = document.getElementById("create-message");
+// ── Reset ──────────────────────────────────────────────────────────────────────
 
-let sendAndDisplayClicked = false;
-
-sendAndDisplayButton?.addEventListener("click", function () {
-  if (notificationType && displayingType) {
-    // Bridge is assembled at runtime by composing the chosen Abstraction + Implementation
-    const notificationBridge = new NotificationBridge(
-      notificationType,
-      displayingType
-    );
-    const messageInput = document.getElementById(
-      "message"
-    )! as HTMLInputElement;
-    const message = messageInput.value;
-    notificationBridge.sendAndDisplay(message); // Triggers both sides of the bridge
-  }
-  sendAndDisplayClicked = true;
-  const resetButton = document.getElementById("reset");
-  if (resetButton) {
-    resetButton.style.display = "inline-block";
-  }
-});
-
-const resetButton = document.getElementById("reset");
-resetButton?.addEventListener("click", function () {
+resetButton.addEventListener("click", () => {
   notificationType = null;
-  displayingType = null;
+  displayingType   = null;
 
-  const notifyType = document.getElementById("notification-type");
-  if (notifyType) {
-    notifyType.innerHTML = "";
-  }
+  notifyType.textContent   = "";
+  displayType.textContent  = "";
+  notifyWindow.style.display     = "flex";
+  notifyDispWindow.style.display = "flex";
+  resetButton.style.display      = "none";
 
-  const displayType = document.getElementById("display-type");
-  if (displayType) {
-    displayType.innerHTML = "";
-  }
-
-  if (notifyWindow) {
-    notifyWindow.style.display = "flex";
-  }
-  if (notifyDisplayWindow) {
-    notifyDisplayWindow.style.display = "flex";
-  }
-
-  resetButton.style.display = "none";
-
-  sendAndDisplayClicked = false;
+  const log = document.getElementById("send-log")!;
+  log.classList.add("hidden");
+  log.innerHTML = "";
 });
