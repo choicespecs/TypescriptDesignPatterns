@@ -1,53 +1,150 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+:root { --accent: #6366f1; }
 
-:root {
-  --color-one: #9e788f;
-  --color-two: #a9b3ce;
-  --color-three: #7cdedc;
-  --color-four: #7284a8;
-  --color-five: #474954;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #0d0d12;
+  color: #e4e4ef;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f5f5f5;
+.pattern-header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pattern-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+
+.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
+.pattern-desc { font-size: 0.85rem; color: #9ca3af; }
+
+.pattern-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: rgba(99,102,241,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
+}
+
+.flow-node {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #818cf8;
+  text-align: center;
+  line-height: 1.5;
+}
+.flow-node.highlight {
+  background: rgba(99,102,241,0.2);
+  border-color: rgba(99,102,241,0.5);
+  color: #a5b4fc;
+}
+.flow-node span { font-size: 0.65rem; color: #6b7280; font-weight: 400; display: block; }
+.flow-arrow { color: #374151; font-size: 0.85rem; white-space: nowrap; }
+
+.demo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-.employee {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+.container { width: 100%; max-width: 640px; }
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.employee.card {
+  background: #16161f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.employee-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.emp-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.engineer-badge {
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+.manager-badge {
+  background: rgba(245,158,11,0.15);
+  color: #fcd34d;
+  border: 1px solid rgba(245,158,11,0.3);
+}
+
+.bonus-rate { font-size: 0.72rem; color: #6ee7b7; font-weight: 600; }
+
+.emp-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.emp-label { font-size: 0.78rem; color: #6b7280; font-weight: 500; }
+.emp-value { font-size: 0.85rem; color: #d1d5db; font-weight: 500; }
+.emp-value.salary { font-family: 'SF Mono', 'Fira Code', monospace; color: #6ee7b7; }
+
+.btn-process {
+  background: rgba(99,102,241,0.12);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.25);
   border-radius: 8px;
-}
-
-.employee h2 {
-  margin-top: 0;
-}
-
-.employee button {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  transition: background 0.15s;
+  margin-top: auto;
 }
-
-.employee button:hover {
-  background-color: #0056b3;
-}
+.btn-process:hover { background: rgba(99,102,241,0.22); }

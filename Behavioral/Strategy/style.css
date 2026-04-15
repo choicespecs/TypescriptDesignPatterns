@@ -1,59 +1,129 @@
-:root {
-  --color-one: #b8d8d8;
-  --color-two: #7a9e9f;
-  --color-three: #4f6367;
-  --color-four: #eef5db;
-  --color-five: #fe5f55;
-}
+:root { --accent: #6366f1; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #0d0d12;
+  color: #e4e4ef;
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.pattern-header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pattern-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+
+.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
+.pattern-desc { font-size: 0.85rem; color: #9ca3af; }
+
+.pattern-flow {
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-one);
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: rgba(99,102,241,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
 }
 
-.window {
-  width: 500px;
-  height: 500px;
-  margin-top: 5em;
+.flow-node {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #818cf8;
+  text-align: center;
+  line-height: 1.5;
+}
+.flow-node.highlight {
+  background: rgba(99,102,241,0.2);
+  border-color: rgba(99,102,241,0.5);
+  color: #a5b4fc;
+}
+.flow-node span { font-size: 0.65rem; color: #6b7280; font-weight: 400; display: block; }
+.flow-arrow { color: #374151; font-size: 0.85rem; white-space: nowrap; }
+
+.demo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.window.card {
+  background: #16161f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: var(--color-four);
+  gap: 1.5rem;
 }
 
-nav {
-  width: 100%;
-  height: 20px;
-  background-color: var(--color-three);
-}
-
-.payment-list {
-  width: 100%;
-  height: 50%;
+.cost-display {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2em;
-  color: white;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.07);
 }
+.cost-label { font-size: 0.8rem; color: #6b7280; font-weight: 500; }
+.cost-amount { font-size: 1.5rem; font-weight: 700; color: #f1f1f8; font-variant-numeric: tabular-nums; }
+
+.section-title { font-size: 0.9rem; font-weight: 600; color: #d1d5db; margin-bottom: -0.75rem; }
+.section-hint { font-size: 0.78rem; color: #4b5563; margin-top: -0.5rem; }
+
+.payment-list { display: flex; flex-direction: column; gap: 0.65rem; }
 
 .payment-button {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: calc(100% - 60px);
-  height: 40px;
-  border-radius: 5px;
-  background-color: var(--color-two);
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.15s;
+}
+.payment-button:hover {
+  background: rgba(99,102,241,0.1);
+  border-color: rgba(99,102,241,0.3);
 }
 
-.payment-button:hover {
-  background-color: var(--color-three);
-}
+.pay-icon { font-size: 1.3rem; flex-shrink: 0; }
+.pay-details { flex: 1; display: flex; flex-direction: column; gap: 0.15rem; }
+.pay-name { font-size: 0.875rem; font-weight: 600; color: #e4e4ef; }
+.pay-desc { font-size: 0.75rem; color: #6b7280; }
+.pay-arrow { color: #374151; font-size: 0.9rem; }
+
+nav { display: none; }

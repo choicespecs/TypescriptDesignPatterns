@@ -1,12 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Menu Example</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="menu-container"></div>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Prototype Pattern</title><link rel="stylesheet" href="styles.css"/><script defer="defer" src="dist/index.js"></script></head><body><header class="pattern-header"><span class="pattern-badge">Creational</span><h1 class="pattern-title">Prototype Pattern</h1><p class="pattern-desc">Clone existing objects instead of creating new ones from scratch</p></header><div class="pattern-flow"><div class="flow-node">baseMenuItemPrototype<br/><span>Home / icon / # / visible</span></div><div class="flow-arrow">→ .clone() →</div><div class="flow-node highlight">menuItem1<br/><span>About / about.html</span></div><div class="flow-arrow">→ .clone() →</div><div class="flow-node highlight">menuItem2<br/><span>Services / services.html</span></div></div><main class="demo"><div class="menu-card"><div class="menu-card-header"><span class="menu-title">Navigation Menu</span> <span class="menu-hint">Rendered from cloned prototypes</span></div><div id="menu-container"></div></div></main></body></html>

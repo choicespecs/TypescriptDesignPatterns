@@ -1,16 +1,25 @@
+// Builder Pattern — ConcreteBuilder
+// Constructs a Widget step by step; each setter delegates to the Widget and returns `this`
+// for fluent chaining, ending with build() to hand over the completed product.
+
 import { Builder } from "../interfaces/Builder";
 import { Widget } from "./Widget";
 
+/**
+ * ConcreteBuilder in the Builder pattern.
+ * Each setter configures the internal Widget product and returns `this` to allow
+ * method chaining. build() finalises construction and returns the assembled Widget.
+ */
 export class WidgetBuilder implements Builder {
   private widget: Widget;
 
   constructor() {
-    this.widget = new Widget();
+    this.widget = new Widget(); // Create the blank product that will be configured step by step
   }
 
   public setTitle(title: string): this {
     this.widget.setTitle(title);
-    return this;
+    return this; // Return builder for chaining
   }
 
   public setContent(content: string): this {
@@ -43,6 +52,7 @@ export class WidgetBuilder implements Builder {
     return this;
   }
 
+  /** Finalises the build step and returns the fully configured Widget product. */
   public build(): Widget {
     return this.widget;
   }

@@ -1,3 +1,8 @@
+// Composite Pattern — Entry point / client
+// Creates two independent composite trees (musicStore, bookStore), each a Store
+// holding Product leaves. Client code calls store.getPrice() on both without
+// knowing or caring that Store is a composite rather than a leaf.
+
 import { Product } from "./models/Product";
 import { Store } from "./models/Store";
 
@@ -52,6 +57,7 @@ bookShopForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+/** Reads a numeric input; returns 0 if empty (prevents NaN in price calculations). */
 function getValue(input: HTMLInputElement) {
   if (input.value.length > 0) {
     return Number(input.value);
@@ -59,17 +65,22 @@ function getValue(input: HTMLInputElement) {
   return 0;
 }
 
+// Composite roots — both start empty and grow as products are added
 const musicStore: Store = new Store([]);
 const bookStore: Store = new Store([]);
+
+// Staging arrays: products added since the last "Calculate" click
 const musicStoreProduct: Product[] = [];
 const bookStoreProduct: Product[] = [];
 
+/** Reads the music shop form, creates Product leaves, and adds them to the musicStore composite. */
 function addMusicProduct() {
   const speakerPrice = getValue(speakersPriceInput);
   const speakerQuantity = getValue(speakersQuantityInput);
   const turntablesPrice = getValue(turntablesPriceInput);
   const turntablesQuantity = getValue(turntablesQuantityInput);
 
+  // Price × quantity collapses quantity into the leaf's single price value
   const speaker = new Product(speakerPrice * speakerQuantity);
   const turntable = new Product(turntablesPrice * turntablesQuantity);
 
@@ -78,7 +89,7 @@ function addMusicProduct() {
 
   if (speaker.getPrice() > 0) {
     musicStoreProduct.push(speaker);
-    musicStore.addProduct(speaker);
+    musicStore.addProduct(speaker); // Store eagerly updates its running total
     speakerCalcPrice!.innerHTML = speaker.getPrice().toString();
   }
 
@@ -93,6 +104,7 @@ function addMusicProduct() {
   });
 }
 
+/** Reads the book shop form, creates Product leaves, and adds them to the bookStore composite. */
 function addBookProduct() {
   const notebookPrice = getValue(notebookPriceInput);
   const notebookQuantity = getValue(notebookQuantityInput);
@@ -122,9 +134,13 @@ function addBookProduct() {
 }
 
 let musicStoreIndex = 1;
+/**
+ * Calls store.getPrice() on the composite root to get the accumulated total,
+ * then lists each pending product in the trend log before clearing the staging array.
+ */
 function calculateMusicStore() {
   const musicStoreTotal = document.querySelector(".music-store-total");
-  musicStoreTotal!.innerHTML = `${musicStore.getPrice()}`;
+  musicStoreTotal!.innerHTML = `${musicStore.getPrice()}`; // Composite returns sum of all leaves
   const currentMusicTrends = document.querySelector(".current-music-trends");
   musicStoreProduct.forEach((product) => {
     let li = document.createElement("li");
@@ -136,10 +152,11 @@ function calculateMusicStore() {
     currentMusicTrends?.appendChild(li);
     musicStoreIndex += 1;
   });
-  musicStoreProduct.length = 0;
+  musicStoreProduct.length = 0; // Clear staging array after logging
 }
 
 let bookStoreIndex = 1;
+/** Same pattern as calculateMusicStore — demonstrates uniform getPrice() call on a composite. */
 function calculateBookStore() {
   const bookStoreTotal = document.querySelector(".book-store-total");
   bookStoreTotal!.innerHTML = `${bookStore.getPrice()}`;
@@ -156,3 +173,9 @@ function calculateBookStore() {
   });
   bookStoreProduct.length = 0;
 }
+
+// Expose on window so HTML onclick attributes can reach these module-scoped functions
+(window as any).addMusicProduct = addMusicProduct;
+(window as any).addBookProduct = addBookProduct;
+(window as any).calculateMusicStore = calculateMusicStore;
+(window as any).calculateBookStore = calculateBookStore;

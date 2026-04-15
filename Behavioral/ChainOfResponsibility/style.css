@@ -1,56 +1,166 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+:root { --accent: #6366f1; }
 
-:root {
-  --color-one: #d0efb1;
-  --color-two: #b3d89c;
-  --color-three: #9dc3c2;
-  --color-four: #77a6b6;
-  --color-five: #4d7298;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background-color: var(--color-one);
-  height: 100vh;
-  width: 100%;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #0d0d12;
+  color: #e4e4ef;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pattern-header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pattern-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+
+.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
+.pattern-desc { font-size: 0.85rem; color: #9ca3af; }
+
+.pattern-flow {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgba(99,102,241,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
 }
 
-.window {
-  background-color: var(--color-three);
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2em;
-}
-
-#validationForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-input {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-input label {
-  width: 150px; /* Set a fixed width for the labels */
-  margin-bottom: 5px; /* Add some margin-bottom for spacing */
-}
-
-.form-title {
-  padding: 12px;
+.flow-node {
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a5b4fc;
   text-align: center;
+  line-height: 1.5;
+}
+
+.flow-arrow { color: #374151; font-size: 1.1rem; }
+
+.demo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: #16161f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f1f8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9ca3af;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.hint {
+  font-size: 0.7rem;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #e4e4ef;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+input::placeholder { color: #374151; }
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.25rem;
+  transition: filter 0.15s;
+  font-family: inherit;
+}
+.btn-primary:hover { filter: brightness(1.12); }
+
+.validation-result {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: none;
+}
+.validation-result.success {
+  display: block;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #6ee7b7;
+}
+.validation-result.error {
+  display: block;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: #f87171;
 }

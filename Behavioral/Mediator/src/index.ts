@@ -1,9 +1,12 @@
+// Mediator Pattern — Entry point / client
+// Instantiates the ChatRoom mediator, registers colleagues, and wires DOM send buttons.
+
 import { ChatRoom } from "./models/ChatRoom";
 import { User } from "./interfaces/User";
 import { UserComponent } from "./models/UserComponent";
 
-// Usage
 const chatMessages = document.querySelectorAll(".chat-message");
+// Single ChatRoom instance acts as the mediator for all participants
 const mediator = new ChatRoom(chatMessages);
 
 // Create users
@@ -25,7 +28,7 @@ document.getElementById("send-button-1")?.addEventListener("click", () => {
   ) as HTMLInputElement;
   const message = messageInput.value.trim();
   if (message !== "") {
-    aliceComponent.sendMessage(bob, message);
+    aliceComponent.sendMessage(bob, message); // Colleague delegates to mediator — never calls bobComponent directly
     messageInput.value = "";
   }
 });

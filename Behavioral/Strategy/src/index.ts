@@ -1,4 +1,6 @@
-// app.ts
+// Strategy Pattern — Entry point / client
+// Creates a User (Context) and wires each button to a different ConcreteStrategy.
+
 import { User } from "./models/User";
 import { Payment } from "./interfaces/Payment";
 import { CreditCardPayment } from "./models/CreditCardPayment";
@@ -17,6 +19,7 @@ const creditCardButton = document.querySelector("#card")!;
 const paypalButton = document.querySelector("#paypal")!;
 const bankButton = document.querySelector("#bank")!;
 
+// Each button injects a different strategy — the Context (user1) stays the same
 creditCardButton.addEventListener("click", () =>
   paid(new CreditCardPayment(), user1)
 );

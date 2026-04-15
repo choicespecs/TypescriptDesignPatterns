@@ -1,5 +1,13 @@
+// Abstract Factory Pattern — ConcreteProduct (text-theme content area)
+// Fills the content area with Lorem Ipsum paragraphs when display() is called.
+
 import { DisplayContent } from "../../interfaces/DisplayContent";
 
+/**
+ * ConcreteProduct for the text-theme content area.
+ * Implements DisplayContent.display() by injecting Lorem Ipsum HTML paragraphs.
+ * Created exclusively by TextTheme — completes the Text product family.
+ */
 export class TextContent implements DisplayContent {
   private themeContent: HTMLElement;
 

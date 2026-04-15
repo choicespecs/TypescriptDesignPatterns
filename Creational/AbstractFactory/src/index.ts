@@ -1,3 +1,6 @@
+// Abstract Factory Pattern — Entry point / client
+// Holds references to both factories and calls factory methods when the user picks components.
+
 import { TextTheme } from "./classes/text/TextTheme";
 import { ImageTheme } from "./classes/image/ImageTheme";
 
@@ -23,19 +26,25 @@ let navSet = false;
 let windowSet = false;
 let contentSet = false;
 
+// Initial state: all product buttons muted until a theme is selected
+navigationButton.classList.add("muted");
+windowButton.classList.add("muted");
+contentButton.classList.add("muted");
+resetButton.classList.add("muted");
+
 function resetVariables() {
   (<HTMLElement>navigationButton).style.display = "block";
   (<HTMLElement>windowButton).style.display = "block";
   (<HTMLElement>contentButton).style.display = "block";
-  (<HTMLElement>navigationButton).style.backgroundColor = "green";
-  (<HTMLElement>windowButton).style.backgroundColor = "green";
-  (<HTMLElement>contentButton).style.backgroundColor = "red";
+  navigationButton.classList.remove("muted");
+  windowButton.classList.remove("muted");
+  contentButton.classList.add("muted");
   number = 1;
   actions.innerHTML = "";
   navSet = false;
   windowSet = false;
   contentSet = false;
-  (<HTMLElement>resetButton).style.backgroundColor = "red";
+  resetButton.classList.add("muted");
 }
 
 function addAction(number: number, name: string) {
@@ -52,21 +61,21 @@ function setTextTheme() {
   currentTheme = "text";
   textOn = true;
   themeName.innerHTML = currentTheme;
-  (<HTMLElement>navigationButton).style.backgroundColor = "green";
-  (<HTMLElement>windowButton).style.backgroundColor = "green";
+  navigationButton.classList.remove("muted");
+  windowButton.classList.remove("muted");
 }
 
 function setImageTheme() {
   currentTheme = "image";
   imageOn = true;
   themeName.innerHTML = currentTheme;
-  (<HTMLElement>navigationButton).style.backgroundColor = "green";
-  (<HTMLElement>windowButton).style.backgroundColor = "green";
+  navigationButton.classList.remove("muted");
+  windowButton.classList.remove("muted");
 }
 
 function setNavigation(textThemeOn: boolean, imageThemeOn: boolean) {
   if (textThemeOn) {
-    textTheme.createNavigation().display();
+    textTheme.createNavigation().display(); // Factory creates product; client calls display()
   }
   if (imageThemeOn) {
     imageTheme.createNavigation().display();
@@ -113,7 +122,7 @@ navigationButton.addEventListener("click", () => {
     addAction(number, `${currentTheme} navigation`);
     number += 1;
     navSet = true;
-    (<HTMLElement>resetButton).style.backgroundColor = "green";
+    resetButton.classList.remove("muted");
     setNavigation(textOn, imageOn);
   }
 });
@@ -123,8 +132,8 @@ windowButton.addEventListener("click", () => {
     addAction(number, `${currentTheme} window`);
     number += 1;
     windowSet = true;
-    (<HTMLElement>contentButton).style.backgroundColor = "green";
-    (<HTMLElement>resetButton).style.backgroundColor = "green";
+    contentButton.classList.remove("muted");
+    resetButton.classList.remove("muted");
     setWindow(textOn, imageOn);
   }
 });
@@ -134,7 +143,7 @@ contentButton.addEventListener("click", () => {
     addAction(number, `${currentTheme} content`);
     number += 1;
     contentSet = true;
-    (<HTMLElement>resetButton).style.backgroundColor = "green";
+    resetButton.classList.remove("muted");
     setContent(textOn, imageOn);
   }
 });

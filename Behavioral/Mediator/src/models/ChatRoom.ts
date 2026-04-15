@@ -1,28 +1,35 @@
+// Mediator Pattern — ConcreteMediator
+// Central hub that receives all messages from colleagues and decides how to display them.
+
 import { User } from "../interfaces/User";
 import { ChatMediator } from "../interfaces/ChatMediator";
 
-// Concrete mediator class that manages communication between users.
+/**
+ * ConcreteMediator in the Mediator pattern.
+ * ChatRoom is the single point of communication between UserComponents.
+ * It maintains the participant registry and owns all DOM update logic,
+ * so UserComponents never need references to each other.
+ */
 export class ChatRoom implements ChatMediator {
   private users: User[] = [];
 
   constructor(private chatMessages: NodeListOf<Element>) {}
 
-  // Register a user with the mediator.
+  /** Adds a user to the mediator's registry so it can be addressed in messages. */
   registerUser(user: User) {
     this.users.push(user);
   }
 
-  // Send a message from one user to another.
+  /** Receives a message from a colleague and broadcasts it to the chat display.
+   *  This is the core mediator routing point — colleagues only call this, never each other. */
   sendMessage(sender: User, receiver: User, message: string) {
-    // Handle message logic, such as updating chat history, etc.
     this.updateMessageDisplay(`${sender.name}: ${message}`);
   }
 
-  // Update the chat message display.
+  /** Appends the formatted message to every chat-message DOM element. */
   private updateMessageDisplay(message: string) {
     this.chatMessages.forEach((chatMessage) => {
-      const childElement = document.createElement("div"); // Example of child element creation
-      // Append whatever child element you want
+      const childElement = document.createElement("div");
       childElement.textContent = message;
       chatMessage.appendChild(childElement);
     });

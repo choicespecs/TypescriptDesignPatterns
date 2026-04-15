@@ -1,6 +1,15 @@
+// Command Pattern — Receiver
+// Performs the real work: inserting and deleting records from an in-memory array
+// and reflecting those changes in the DOM.
+
 import { Database } from "../interfaces/Database";
 import { Data } from "../types/Data";
 
+/**
+ * Receiver in the Command pattern.
+ * ConcreteCommands (InsertDatabase, DeleteDatabase) call insert() or delete() on this
+ * object; it owns the actual mutation logic and DOM update side-effects.
+ */
 export class ApplicationDatabase implements Database {
   constructor(
     private database: Data[],
@@ -9,6 +18,7 @@ export class ApplicationDatabase implements Database {
     private actionList: HTMLElement
   ) {}
 
+  /** Adds a record to the store and renders it in all three DOM lists. */
   insert(data: Data) {
     this.database.push(data);
     this.addUsername(data.username);
@@ -16,6 +26,7 @@ export class ApplicationDatabase implements Database {
     this.addLog(data);
   }
 
+  /** Removes the record by ID from the store and removes the last DOM row from each list. */
   delete(data: Data) {
     this.database = this.database.filter((obj: Data) => {
       return obj.id !== data.id;

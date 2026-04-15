@@ -1,3 +1,6 @@
+// Factory Method Pattern — Entry point / client
+// Assembles the factory hierarchy and wires the request button to createWebPage().
+
 import { HTTPResponse } from "./types/HTTPResponse";
 import { HTTPWebResponse } from "./models/response/HTTPWebResponse";
 import { ContentWebPageResponse } from "./models/response/ContentWebPageResponse";
@@ -25,6 +28,7 @@ const clientResponse = document.querySelector(".client.response")!;
 const userContent = document.querySelector(".user.content")! as HTMLElement;
 const userArticle = document.querySelector(".user.article")! as HTMLElement;
 
+/** Simulates a random HTTP response with one of four status codes. */
 function createResponse(): HTTPResponse {
   const code = RESPONSE_NUMBERS[Math.floor(Math.random() * 4)];
   const content = RESPONSE_CONTENT[Math.floor(Math.random() * 4)];
@@ -36,6 +40,7 @@ function createResponse(): HTTPResponse {
   };
 }
 
+// Wire sub-factories into the top-level routing factory
 const HTTPResponseFactory = new HTTPWebResponse(
   new ContentWebPageResponse(userContent, userArticle),
   new SecurityWebPageResponse(userContent, userArticle),
@@ -45,8 +50,9 @@ const HTTPResponseFactory = new HTTPWebResponse(
 
 requestButton.addEventListener("click", () => {
   const response = createResponse();
+  // Factory method selects and returns the appropriate ConcreteProduct
   const webPage = HTTPResponseFactory.createWebPage(response);
-  webPage.display();
+  webPage.display(); // Client calls display() on the Product without knowing its concrete type
   let responseString = "";
   let responseContent = "";
   let responseArticle = "";

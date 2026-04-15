@@ -1,3 +1,6 @@
+// Builder Pattern — Entry point / client
+// Reads the form, chains WidgetBuilder setters, and adds the result to DashboardBuilder.
+
 import { WidgetBuilder } from "./models/WidgetBuilder";
 import { DashboardBuilder } from "./models/DashboardBuilder";
 
@@ -73,13 +76,14 @@ function myFunction() {
     }
   }
 
-  if (!allFieldsFilled && !radioSelected) {
+  if (!allFieldsFilled || !radioSelected) {
     error_display.style.display = "block";
     success_display.style.display = "none";
     return;
   } else {
     error_display.style.display = "none";
     success_display.style.display = "block";
+    // Fluent Builder chain: each setter returns `this`, build() delivers the Widget product
     const widget = new WidgetBuilder()
       .setTitle(form_title.value)
       .setContent(form_content.value)
@@ -93,6 +97,7 @@ function myFunction() {
 
     form_text_align_radio.checked = false;
 
+    // Director composes the widget into the dashboard and produces the final HTML
     const customizableDashboard = dashboardBuilder
       .addWidget(widget)
       .buildDashboard();
@@ -101,3 +106,5 @@ function myFunction() {
     dashboardContainer.innerHTML = customizableDashboard;
   }
 }
+
+(window as any).myFunction = myFunction;
