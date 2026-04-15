@@ -7,20 +7,19 @@ import { Manager } from "./Manager";
 
 /**
  * ConcreteVisitor in the Visitor pattern.
- * PayrollProcessor holds the salary-bonus algorithm and uses instanceof to differentiate
- * between employee types — 20% for managers, 10% for all others (engineers).
- * Adding a new operation (e.g. vacation-day calculator) would mean adding a new Visitor,
- * not modifying Engineer or Manager.
+ * Computes the bonus salary for each employee type and stores the result in
+ * `lastResult` so the caller can render it — avoids alert() which is blocked
+ * inside sandboxed iframes (e.g. the hub).
  */
 export class PayrollProcessor implements EmployeeVisitor {
+  /** Set by visit() after processing; read by the caller to update the UI. */
+  lastResult: { bonusRate: number; newSalary: number } | null = null;
+
   visit(employee: Employee): void {
-    // instanceof distinguishes element types since the interface uses a single visit() method
-    const bonus = employee instanceof Manager ? 0.2 : 0.1;
-    const newSalary = employee.salary * (1 + bonus);
-    alert(
-      `Salary processed for ${employee.constructor.name} ${
-        employee.name
-      }: $${newSalary.toFixed(2)}`
-    );
+    const bonusRate = employee instanceof Manager ? 0.2 : 0.1;
+    this.lastResult = {
+      bonusRate,
+      newSalary: employee.salary * (1 + bonusRate),
+    };
   }
 }

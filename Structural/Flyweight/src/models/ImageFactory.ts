@@ -22,4 +22,14 @@ export class ImageFactory {
     // Cache hit — return the existing shared instance
     return this.imageCache.get(src)!;
   }
+
+  /** Returns true if an image for this URL is already cached (cache hit). */
+  has(src: string): boolean {
+    return this.imageCache.has(src);
+  }
+
+  /** Number of unique image objects currently held in the cache. */
+  getCacheSize(): number {
+    return this.imageCache.size;
+  }
 }

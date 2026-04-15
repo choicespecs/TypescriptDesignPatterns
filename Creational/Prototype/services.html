@@ -4,14 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Services</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        background: #0d0d12;
+        color: #e4e4ef;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.75rem;
+        gap: 1.5rem;
+      }
+
+      .page-badge {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(16,185,129,0.12);
+        color: #6ee7b7;
+        border: 1px solid rgba(16,185,129,0.25);
+        width: fit-content;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f1f1f8;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      .divider {
+        height: 1px;
+        background: rgba(255,255,255,0.07);
+      }
+
+      .service-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .service-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        background: #16161f;
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 10px;
+        padding: 0.85rem 1rem;
+        transition: border-color 0.15s;
+      }
+      .service-item:hover { border-color: rgba(16,185,129,0.25); }
+
+      .service-icon {
+        font-size: 1.1rem;
+        padding-top: 0.05rem;
+        flex-shrink: 0;
+      }
+
+      .service-info { display: flex; flex-direction: column; gap: 0.2rem; }
+      .service-name { font-size: 0.875rem; font-weight: 600; color: #d1d5db; }
+      .service-desc { font-size: 0.75rem; color: #4b5563; line-height: 1.5; }
+
+      .note {
+        font-size: 0.75rem;
+        color: #374151;
+        font-style: italic;
+        margin-top: auto;
+      }
+    </style>
   </head>
   <body>
+    <span class="page-badge">⚙️ Services</span>
     <h1>Our Services</h1>
-    <p>Here are some of the services we offer:</p>
-    <ul>
-      <li>Web Development</li>
-      <li>Graphic Design</li>
-      <li>Digital Marketing</li>
-    </ul>
+    <p class="subtitle">
+      A suite of focused offerings built on consistent foundations — much like prototype clones
+      that share a base object and override only what differs.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="service-list">
+      <div class="service-item">
+        <span class="service-icon">🏗️</span>
+        <div class="service-info">
+          <span class="service-name">Architecture Review</span>
+          <span class="service-desc">Evaluate system design, identify coupling, and recommend pattern-based improvements.</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-icon">🎨</span>
+        <div class="service-info">
+          <span class="service-name">UI Systems</span>
+          <span class="service-desc">Design token–driven component libraries with clear variant and composition strategies.</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-icon">📐</span>
+        <div class="service-info">
+          <span class="service-name">Pattern Consulting</span>
+          <span class="service-desc">Apply Creational, Structural, and Behavioral patterns to real codebases.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Prototype Pattern demo — this page was reached via a cloned MenuItem object</p>
   </body>
 </html>

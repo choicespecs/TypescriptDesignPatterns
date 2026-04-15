@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prototype Pattern</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="pattern-header">
+      <span class="pattern-badge">Creational</span>
+      <h1 class="pattern-title">Prototype Pattern</h1>
+      <p class="pattern-desc">Clone existing objects instead of creating new ones from scratch — then override only what differs</p>
+    </header>
+
+    <div class="pattern-flow">
+      <div class="flow-node">new MenuItem(…)<br /><span>one constructor call</span></div>
+      <div class="flow-arrow">→ .clone() →</div>
+      <div class="flow-node highlight">menuItem1<br /><span>override 3 props</span></div>
+      <div class="flow-arrow">→ .clone() →</div>
+      <div class="flow-node highlight">menuItem2<br /><span>override 3 props</span></div>
+    </div>
+
+    <main class="demo">
+      <div class="objects-section">
+        <div class="prototype-col">
+          <div class="object-card is-prototype" id="prototype-card"></div>
+        </div>
+        <div class="clone-divider">
+          <span>→ .clone()</span>
+          <span>→ .clone()</span>
+        </div>
+        <div class="clones-col">
+          <div class="object-card" id="clone1-card"></div>
+          <div class="object-card" id="clone2-card"></div>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-label">Rendered navigation</div>
+        <div class="menu-card">
+          <div id="menu-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Mini browser window modal -->
+    <div id="page-overlay" class="page-overlay hidden">
+      <div class="page-window">
+        <div class="page-toolbar">
+          <div class="toolbar-dots">
+            <span class="dot dot-red" id="modal-close-btn" title="Close"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="toolbar-url" id="modal-url"></div>
+        </div>
+        <iframe id="modal-frame" src="" title="Page preview"></iframe>
+      </div>
+    </div>
+  </body>
+</html>

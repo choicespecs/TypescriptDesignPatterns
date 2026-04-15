@@ -1,21 +1,27 @@
 // Bridge Pattern — Refined Abstraction (SMS channel)
-// Implements SampleNotification; send() logs an SMS message to the console.
+// send() renders a styled SMS send-log entry in the UI instead of console.log.
 
 import { SampleNotification } from "../interfaces/SampleNotification";
 
-/**
- * Refined Abstraction for SMS notifications.
- * Implements the Abstraction side of the bridge — its send() is entirely independent
- * of which NotificationDisplay will render the message on the other side.
- */
 export class SMSNotification implements SampleNotification {
+  readonly channel = 'sms' as const;
+
   send(message: string): void {
-    console.log(`-=Sending SMS notification=-`);
-    console.log("");
-    console.log(`To: 555-555-555`);
-    console.log(`From: 000-000-000`);
-    console.log(`Message: ${message}`);
-    console.log("");
-    console.log("-=SMS sent successfully!=-");
+    const log = document.getElementById("send-log");
+    if (!log) return;
+
+    log.classList.remove("hidden");
+    log.innerHTML = `
+      <div class="send-entry sms-entry">
+        <div class="send-entry-header">
+          <span class="send-icon">💬</span>
+          <span class="send-title">SMS sent</span>
+        </div>
+        <div class="send-meta">
+          <div><span class="meta-key">From</span><span class="meta-val">+1 (000) 000-0000</span></div>
+          <div><span class="meta-key">To</span><span class="meta-val">+1 (555) 555-5555</span></div>
+          <div><span class="meta-key">Message</span><span class="meta-val">${message}</span></div>
+        </div>
+      </div>`;
   }
 }

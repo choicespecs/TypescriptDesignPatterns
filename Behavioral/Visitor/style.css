@@ -148,3 +148,25 @@ body {
   margin-top: auto;
 }
 .btn-process:hover { background: rgba(99,102,241,0.22); }
+
+.process-result {
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(110,231,183,0.06);
+  border: 1px solid rgba(110,231,183,0.2);
+  border-radius: 8px;
+  font-size: 0.78rem;
+}
+.process-result.visible { display: flex; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.result-label      { color: #6b7280; }
+.result-bonus-rate { font-weight: 700; color: #6ee7b7; font-family: 'SF Mono', ui-monospace, monospace; }
+.result-salary     { font-weight: 600; color: #6ee7b7; font-family: 'SF Mono', ui-monospace, monospace; font-size: 0.73rem; }

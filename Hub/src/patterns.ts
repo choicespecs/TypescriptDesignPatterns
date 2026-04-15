@@ -515,7 +515,7 @@ Avoids repeated constructor calls with the same boilerplate values for each item
     demo: 'Media player (YouTube / MP4 / text)',
     coreIdea: 'MediaAdapter wraps AdvancedMediaPlayer to satisfy the MediaPlayer interface',
     path: 'Structural/Adapter',
-    hasDemo: false,
+    hasDemo: true,
     markdown: `## Adapter Pattern
 
 **Demo:** Media player — a standard \`MediaPlayer\` interface is used to play YouTube videos, MP4 files, and text files despite the underlying players having incompatible interfaces.

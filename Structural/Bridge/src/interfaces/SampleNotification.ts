@@ -8,6 +8,8 @@
  * decoupling the "how to send" dimension from the "how to display" dimension.
  */
 export interface SampleNotification {
-  /** Sends the notification via this implementation's channel (email, SMS, etc.). */
+  /** Which channel this abstraction represents — passed to the display side via the bridge. */
+  readonly channel: 'email' | 'sms';
+  /** Sends the notification and renders a visible send-log entry in the UI. */
   send(message: string): void;
 }

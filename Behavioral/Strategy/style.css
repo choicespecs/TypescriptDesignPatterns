@@ -126,4 +126,78 @@ body {
 .pay-desc { font-size: 0.75rem; color: #6b7280; }
 .pay-arrow { color: #374151; font-size: 0.9rem; }
 
+.custom-amount-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.amount-input {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  color: #e4e4ef;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.amount-input:focus { border-color: rgba(99,102,241,0.5); }
+.amount-input::placeholder { color: #4b5563; }
+
+.btn-secondary {
+  background: rgba(99,102,241,0.12);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-secondary:hover { background: rgba(99,102,241,0.22); }
+
+.btn-reset {
+  background: rgba(255,255,255,0.04);
+  color: #6b7280;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn-reset:hover { background: rgba(255,255,255,0.08); color: #d1d5db; }
+
+.payment-result {
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem 0.9rem;
+  background: rgba(99,102,241,0.06);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 10px;
+  font-size: 0.78rem;
+}
+.payment-result.visible { display: flex; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.result-label { color: #6b7280; }
+.result-value { color: #d1d5db; font-weight: 500; }
+.result-fee { color: #fca5a5; font-weight: 600; font-family: 'SF Mono', ui-monospace, monospace; }
+.result-balance { color: #6ee7b7; font-weight: 600; font-family: 'SF Mono', ui-monospace, monospace; }
+
 nav { display: none; }

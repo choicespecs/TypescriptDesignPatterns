@@ -8,7 +8,7 @@
  */
 export interface AdvancedMediaPlayer {
   /** Plays a video file; relevant for YouTubePlayer but a no-op for Mp4Player. */
-  playVid(fileName: string): void;
+  playVid(fileName: string): string;
   /** Plays a music/audio file; relevant for Mp4Player but a no-op for YouTubePlayer. */
-  playMusic(fileName: string): void;
+  playMusic(fileName: string): string;
 }

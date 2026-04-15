@@ -14,22 +14,26 @@ import { Mp4Player } from "./Mp4Player";
  */
 export class MediaAdapter implements MediaPlayer {
   private advancedMediaPlayer: AdvancedMediaPlayer;
+  readonly adapteeClass: string;
 
   constructor(mediaType: string) {
     // Choose the Adaptee based on the requested media type
     if (mediaType === "youtube") {
       this.advancedMediaPlayer = new YouTubePlayer();
-    } else if (mediaType === "mp4") {
+      this.adapteeClass = "YouTubePlayer";
+    } else {
       this.advancedMediaPlayer = new Mp4Player();
+      this.adapteeClass = "Mp4Player";
     }
   }
 
   /** Translates the unified play() call into the Adaptee's specific method. */
-  play(mediaType: string, fileName: string) {
+  play(mediaType: string, fileName: string): string {
     if (mediaType === "youtube") {
-      this.advancedMediaPlayer.playVid(fileName); // Adapt: play() → playVid()
+      return this.advancedMediaPlayer.playVid(fileName); // Adapt: play() → playVid()
     } else if (mediaType === "mp4") {
-      this.advancedMediaPlayer.playMusic(fileName); // Adapt: play() → playMusic()
+      return this.advancedMediaPlayer.playMusic(fileName); // Adapt: play() → playMusic()
     }
+    return "";
   }
 }

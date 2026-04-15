@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visitor Pattern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="pattern-header">
+      <span class="pattern-badge">Behavioral</span>
+      <h1 class="pattern-title">Visitor Pattern</h1>
+      <p class="pattern-desc">Add operations to objects without modifying them — the visitor performs type-specific logic</p>
+    </header>
+
+    <div class="pattern-flow">
+      <div class="flow-node">Engineer / Manager<br /><span>Elements (accept visitor)</span></div>
+      <div class="flow-arrow">→ accept(v) →</div>
+      <div class="flow-node highlight">PayrollProcessor<br /><span>Visitor</span></div>
+      <div class="flow-arrow">→ visit() →</div>
+      <div class="flow-node">10% / 20% bonus<br /><span>per employee type</span></div>
+    </div>
+
+    <main class="demo">
+      <div class="container">
+        <div class="employee-grid">
+
+          <div class="employee card" id="engineer">
+            <div class="employee-header">
+              <span class="emp-badge engineer-badge">Engineer</span>
+              <span class="bonus-rate">+10% bonus</span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Name</span>
+              <span id="engineer-name" class="emp-value"></span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Salary</span>
+              <span id="engineer-salary" class="emp-value salary"></span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Department</span>
+              <span id="engineer-department" class="emp-value"></span>
+            </div>
+            <button id="process-engineer-salary" class="btn-process">Process Salary (visit)</button>
+            <div id="engineer-result" class="process-result"></div>
+          </div>
+
+          <div class="employee card" id="manager">
+            <div class="employee-header">
+              <span class="emp-badge manager-badge">Manager</span>
+              <span class="bonus-rate">+20% bonus</span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Name</span>
+              <span id="manager-name" class="emp-value"></span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Salary</span>
+              <span id="manager-salary" class="emp-value salary"></span>
+            </div>
+            <div class="emp-field">
+              <span class="emp-label">Department</span>
+              <span id="manager-department" class="emp-value"></span>
+            </div>
+            <button id="process-manager-salary" class="btn-process">Process Salary (visit)</button>
+            <div id="manager-result" class="process-result"></div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

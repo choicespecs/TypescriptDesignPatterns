@@ -24,7 +24,7 @@ export class User {
   payment(payment: Payment): void {
     const total = payment.pay(this); // Delegate to the injected strategy
     if (total > 0) {
-      this.amount = payment.pay(this); // Update balance with the strategy's result
+      this.amount = total; // Update balance with the strategy's result
     }
   }
 

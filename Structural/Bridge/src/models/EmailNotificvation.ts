@@ -1,22 +1,28 @@
 // Bridge Pattern — Refined Abstraction (email channel)
-// Implements SampleNotification; send() logs an email to the console.
+// send() renders a styled email send-log entry in the UI instead of console.log.
 
 import { SampleNotification } from "../interfaces/SampleNotification";
 
-/**
- * Refined Abstraction for email notifications.
- * Implements the Abstraction side of the bridge — handles the "how to send" concern
- * independently of how the message will be displayed by the Implementation side.
- */
 export class EmailNotification implements SampleNotification {
+  readonly channel = 'email' as const;
+
   send(message: string): void {
-    console.log(`-=Sending email notification=-`);
-    console.log("");
-    console.log(`To: Everyone`);
-    console.log(`From: Your favorite developer`);
-    console.log(`Subject: Got big news to tell you`);
-    console.log(`Body: ${message}`);
-    console.log("");
-    console.log(`-=Email sent successfully=-`);
+    const log = document.getElementById("send-log");
+    if (!log) return;
+
+    log.classList.remove("hidden");
+    log.innerHTML = `
+      <div class="send-entry email-entry">
+        <div class="send-entry-header">
+          <span class="send-icon">📧</span>
+          <span class="send-title">Email sent</span>
+        </div>
+        <div class="send-meta">
+          <div><span class="meta-key">From</span><span class="meta-val">app@example.com</span></div>
+          <div><span class="meta-key">To</span><span class="meta-val">everyone@example.com</span></div>
+          <div><span class="meta-key">Subject</span><span class="meta-val">New notification</span></div>
+          <div><span class="meta-key">Body</span><span class="meta-val">${message}</span></div>
+        </div>
+      </div>`;
   }
 }
