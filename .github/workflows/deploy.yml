@@ -34,7 +34,6 @@ jobs:
           restore-keys: hub-
 
       # Build every pattern that has a package.json.
-      # Adapter is skipped — it has no package.json or built HTML.
       - name: Build patterns
         run: |
           for dir in Behavioral/*/ Creational/*/ Structural/*/; do
@@ -47,11 +46,13 @@ jobs:
         run: cd Hub && npm ci && npm run build
 
       # Assemble _site/ layout:
-      #   _site/index.html          ← Hub
-      #   _site/dist/index.js       ← Hub bundle
+      #   _site/index.html              ← Hub
+      #   _site/dist/index.js           ← Hub bundle
+      #   _site/shared/base.css         ← shared styles (imported by all pattern CSS files)
       #   _site/<Category>/<Pattern>/index.html
-      #   _site/<Category>/<Pattern>/style.css
+      #   _site/<Category>/<Pattern>/style.css   (or styles.css for Prototype)
       #   _site/<Category>/<Pattern>/dist/index.js
+      #   _site/<Category>/<Pattern>/images/     ← static assets where present
       - name: Assemble site
         run: |
           mkdir -p _site/dist
@@ -60,14 +61,27 @@ jobs:
           cp Hub/index.html _site/index.html
           cp Hub/dist/index.js _site/dist/index.js
 
+          # Shared styles — pattern CSS files use @import "../../shared/base.css"
+          # which resolves to _site/shared/base.css on GitHub Pages
+          mkdir -p _site/shared
+          cp shared/base.css _site/shared/base.css
+
           # Pattern files
           for dir in Behavioral/*/ Creational/*/ Structural/*/; do
             [ -f "${dir}index.html" ]      || continue
             [ -f "${dir}dist/index.js" ]   || continue
             mkdir -p "_site/${dir}dist"
             cp "${dir}index.html"    "_site/${dir}index.html"
-            cp "${dir}style.css"     "_site/${dir}style.css"
             cp "${dir}dist/index.js" "_site/${dir}dist/index.js"
+
+            # style.css (all patterns) or styles.css (Prototype)
+            [ -f "${dir}style.css" ]  && cp "${dir}style.css"  "_site/${dir}style.css"
+            [ -f "${dir}styles.css" ] && cp "${dir}styles.css" "_site/${dir}styles.css"
+
+            # Static image assets (e.g. Flyweight product images)
+            if [ -d "${dir}images" ]; then
+              cp -r "${dir}images" "_site/${dir}images"
+            fi
           done
 
       - name: Upload Pages artifact

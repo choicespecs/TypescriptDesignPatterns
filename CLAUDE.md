@@ -84,7 +84,7 @@ The factory:
 Common reset and layout styles imported by every pattern's `style.css`. Uses CSS custom properties for accent theming:
 
 ```css
-@import "/shared/base.css";
+@import "../../shared/base.css";
 
 :root {
   --badge-bg:   rgba(99,102,241,0.15);  /* set per-pattern */
@@ -105,9 +105,7 @@ Common reset and layout styles imported by every pattern's `style.css`. Uses CSS
 - Creational: emerald (`#10b981` family)
 - Structural (except Adapter): amber (`#f59e0b` family)
 
-The `@import "/shared/base.css"` URL resolves because:
-- Standalone dev server (port 9000): webpack.base.js serves `shared/` at `/shared`
-- Hub dev server (port 9001): serves the repo root at `/`, so `/shared/base.css` maps directly
+The `@import "../../shared/base.css"` relative path resolves correctly in all contexts because all patterns are exactly 2 levels deep (`Category/PatternName/`), so `../../` always reaches the repo root whether in standalone dev, Hub dev, or GitHub Pages. **Never use an absolute path** (`/shared/base.css`) — it breaks on GitHub Pages project pages where the site is served from a subdirectory.
 
 ## HTML Templates
 

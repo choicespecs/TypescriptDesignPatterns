@@ -66,13 +66,15 @@ All color/theme properties reference CSS custom properties (`--badge-bg`, `--nod
 --node-hi-bg: rgba(245,158,11,0.18); --node-hi-bd: rgba(245,158,11,0.45); --node-hi-cl: #fcd34d;
 ```
 
-#### How `/shared/base.css` is served
+#### How `../../shared/base.css` resolves
 
-The `@import "/shared/base.css"` URL (absolute path) resolves because:
-- **Standalone** (port 9000): `webpack.base.js` adds a devServer static entry serving this directory at `/shared`
-- **Hub** (port 9001): Hub's devServer serves the entire repo root at `/`, so `/shared/` maps naturally
+The `@import "../../shared/base.css"` relative path works in every context because all patterns are exactly 2 directory levels deep (`Category/PatternName/`), so `../../` always reaches the repo root:
 
-This is a dev-server-only mechanism — there is no production deployment for this project.
+- **Standalone dev** (port 9000): `style.css` is at `/style.css` (served at root). `../../shared/base.css` normalises to `/shared/base.css`. The devServer in `webpack.base.js` serves `shared/` at `/shared/`, so this resolves correctly.
+- **Hub dev** (port 9001): Hub serves the repo root at `/`. Pattern CSS is at `/Category/Pattern/style.css`. `../../` → repo root → `shared/base.css` ✓
+- **GitHub Pages project page** (e.g. `https://user.github.io/TypescriptDesignPatterns/`): Pattern CSS is at `.../Category/Pattern/style.css`. `../../` → site root → `shared/base.css`. The deploy workflow copies `shared/base.css` to `_site/shared/base.css` ✓
+
+**Do not change this to an absolute path** (`/shared/base.css`). On GitHub Pages project pages, absolute paths resolve to the domain root (`user.github.io/shared/base.css`), not the repo root — the file would 404.
 
 #### Pattern overrides
 

@@ -1,4 +1,4 @@
-@import "/shared/base.css";
+@import "../../shared/base.css";
 
 :root {
   --badge-bg:   rgba(245,158,11,0.15);
