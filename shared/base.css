@@ -1,0 +1,97 @@
+/**
+ * shared/base.css — Common styles for all design pattern demos.
+ *
+ * Each pattern's style.css imports this file and sets the accent CSS variables
+ * before (or after) the import to theme the badge, flow strip, and flow nodes.
+ *
+ * Required CSS variables (set in each pattern's style.css :root block):
+ *
+ *   --badge-bg      badge background     e.g. rgba(99,102,241,0.15)
+ *   --badge-cl      badge text color     e.g. #a5b4fc
+ *   --badge-bd      badge border         e.g. rgba(99,102,241,0.3)
+ *   --flow-bg       flow strip bg        e.g. rgba(99,102,241,0.04)
+ *   --node-bg       flow node bg         e.g. rgba(99,102,241,0.08)
+ *   --node-bd       flow node border     e.g. rgba(99,102,241,0.2)
+ *   --node-cl       flow node color      e.g. #818cf8
+ *   --node-hi-bg    highlight node bg    e.g. rgba(99,102,241,0.2)
+ *   --node-hi-bd    highlight node brd   e.g. rgba(99,102,241,0.5)
+ *   --node-hi-cl    highlight node color e.g. #a5b4fc
+ */
+
+/* ── Reset ───────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ────────────────────────────────────────────────────────────────────── */
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #0d0d12;
+  color: #e4e4ef;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Pattern header ──────────────────────────────────────────────────────────── */
+
+.pattern-header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pattern-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  background: var(--badge-bg);
+  color: var(--badge-cl);
+  border: 1px solid var(--badge-bd);
+}
+
+.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
+.pattern-desc  { font-size: 0.85rem; color: #9ca3af; }
+
+/* ── Flow strip ──────────────────────────────────────────────────────────────── */
+
+.pattern-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: var(--flow-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
+}
+
+.flow-node {
+  background: var(--node-bg);
+  border: 1px solid var(--node-bd);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--node-cl);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.flow-node.highlight {
+  background: var(--node-hi-bg);
+  border-color: var(--node-hi-bd);
+  color: var(--node-hi-cl);
+}
+
+.flow-node span { font-size: 0.65rem; color: #6b7280; font-weight: 400; display: block; }
+
+.flow-arrow { color: #374151; font-size: 0.85rem; white-space: nowrap; }
