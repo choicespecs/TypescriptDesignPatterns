@@ -1,6 +1,7 @@
 @import "../../shared/base.css";
 
 :root {
+  --accent:    #f59e0b;
   --badge-bg:   rgba(245,158,11,0.15);
   --badge-cl:   #fcd34d;
   --badge-bd:   rgba(245,158,11,0.3);
