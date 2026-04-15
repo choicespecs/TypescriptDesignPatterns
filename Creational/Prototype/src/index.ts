@@ -1,6 +1,7 @@
 // Prototype Pattern — Entry point / client
 
 import { MenuItem } from "./models/MenuItem";
+import { setupModal } from "../../../shared/dom-utils";
 
 // ── Objects ────────────────────────────────────────────────────────────────────
 
@@ -80,9 +81,7 @@ function closePageModal(): void {
   modalFrame.src = "";
 }
 
-modalCloseBtn.addEventListener("click", closePageModal);
-pageOverlay.addEventListener("click", e => { if (e.target === pageOverlay) closePageModal(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closePageModal(); });
+setupModal(pageOverlay, modalCloseBtn, closePageModal);
 
 // ── Menu ───────────────────────────────────────────────────────────────────────
 

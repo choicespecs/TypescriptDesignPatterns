@@ -4,13 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Shared Modules
 
-This directory contains the three shared files used by all 21 design pattern demos. Changes here affect every pattern — build a few representative patterns after editing to verify nothing broke.
+This directory contains the shared files used by all design pattern demos. Changes to `tsconfig.base.json`, `webpack.base.js`, and `base.css` affect every pattern — build a few representative patterns after editing to verify nothing broke. Changes to `dom-utils.ts` only affect the 7 patterns that import it.
 
 ```
 shared/
   tsconfig.base.json   # Base TypeScript compiler options
   webpack.base.js      # Webpack config factory function
   base.css             # Shared reset and layout styles
+  dom-utils.ts         # Shared DOM utility functions (appendListItem, setupModal)
 ```
 
 ### tsconfig.base.json
@@ -87,3 +88,23 @@ Some patterns override `.flow-arrow` or `.flow-node` after the import because th
 - Bridge: custom `.pattern-flow` (2-column layout, overrides entire block)
 
 These overrides are at the top of each pattern's `style.css`, immediately after the `:root` vars block.
+
+### dom-utils.ts
+
+Two utility functions extracted from repeated DOM patterns across 7 patterns.
+
+Import path from any pattern's `src/index.ts`:
+```ts
+import { appendListItem, setupModal } from "../../../shared/dom-utils";
+```
+
+**`appendListItem(container, text)`** — Creates an `<li>` with the given text and appends it to `container`. No-op if container is null. Used in:
+- Observer (×2): time window ticker and log update list
+- Template: application run number list
+- Proxy: database entry list (via `insertDatabase` window function)
+- AbstractFactory: action log list (via `addAction`)
+- Composite (×2): music and book store trend logs
+
+**`setupModal(overlay, closeBtn, onClose)`** — Wires three close events for a modal: close button click, click-outside (on the overlay itself), and Escape key. Used in:
+- Bridge: modal notification display close
+- Prototype: mini browser modal close

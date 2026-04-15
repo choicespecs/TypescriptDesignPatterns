@@ -5,6 +5,7 @@
 
 import { Product } from "./models/Product";
 import { Store } from "./models/Store";
+import { appendListItem } from "../../../shared/dom-utils";
 
 const musicShopForm = document.querySelector(".music-shop-form");
 const bookShopForm = document.querySelector(".book-shop-form");
@@ -143,13 +144,7 @@ function calculateMusicStore() {
   musicStoreTotal!.innerHTML = `${musicStore.getPrice()}`; // Composite returns sum of all leaves
   const currentMusicTrends = document.querySelector(".current-music-trends");
   musicStoreProduct.forEach((product) => {
-    let li = document.createElement("li");
-    li.appendChild(
-      document.createTextNode(
-        `${musicStoreIndex}) Music Product: ${product.getPrice()}`
-      )
-    );
-    currentMusicTrends?.appendChild(li);
+    appendListItem(currentMusicTrends, `${musicStoreIndex}) Music Product: ${product.getPrice()}`);
     musicStoreIndex += 1;
   });
   musicStoreProduct.length = 0; // Clear staging array after logging
@@ -162,13 +157,7 @@ function calculateBookStore() {
   bookStoreTotal!.innerHTML = `${bookStore.getPrice()}`;
   const currentBookTrends = document.querySelector(".current-book-trends");
   bookStoreProduct.forEach((product) => {
-    let li = document.createElement("li");
-    li.appendChild(
-      document.createTextNode(
-        `${bookStoreIndex}) Book Product: ${product.getPrice()}`
-      )
-    );
-    currentBookTrends?.appendChild(li);
+    appendListItem(currentBookTrends, `${bookStoreIndex}) Book Product: ${product.getPrice()}`);
     bookStoreIndex += 1;
   });
   bookStoreProduct.length = 0;

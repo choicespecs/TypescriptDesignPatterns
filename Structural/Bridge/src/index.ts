@@ -7,6 +7,7 @@ import { SMSNotification } from "./models/SMSNotification";
 import { ToastNotificationDisplay } from "./models/ToastNotificationDisplay";
 import { ModalNotificationDisplay } from "./models/ModalNotificationDisplay";
 import { NotificationBridge } from "./models/NotificationBridge";
+import { setupModal } from "../../../shared/dom-utils";
 
 let notificationType: SampleNotification | null = null;
 let displayingType: NotificationDisplay | null = null;
@@ -57,9 +58,7 @@ function closeModal(): void {
   modalOverlay.classList.add("hidden");
 }
 
-modalCloseBtn.addEventListener("click", closeModal);
-modalOverlay.addEventListener("click", e => { if (e.target === modalOverlay) closeModal(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+setupModal(modalOverlay, modalCloseBtn, closeModal);
 
 // ── Send & Display ─────────────────────────────────────────────────────────────
 

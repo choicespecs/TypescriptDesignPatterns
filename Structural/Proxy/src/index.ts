@@ -6,6 +6,7 @@
 
 import { User } from "./models/User";
 import { ProtectionProxyDatabaseAccess } from "./models/ProtectionProxyDatabaseAccess";
+import { appendListItem } from "../../../shared/dom-utils";
 
 const form = document.querySelector("form");
 form?.addEventListener("submit", (e) => {
@@ -26,9 +27,7 @@ const writeDatabaseInput = <HTMLInputElement>(
  * direct import would create a circular module dependency.
  */
 function insertDatabase(data: string) {
-  let li = document.createElement("li");
-  li.appendChild(document.createTextNode(data));
-  databaseList?.appendChild(li);
+  appendListItem(databaseList, data);
 }
 
 // The single User instance whose writeAccess flag the proxy reads

@@ -3,6 +3,7 @@
 
 import { Log } from "./models/Log";
 import { User } from "./models/User";
+import { appendListItem } from "../../../shared/dom-utils";
 
 const timeWindow = document.querySelector(".time-window");
 const logUpdates = document.querySelector(".log-updates");
@@ -19,23 +20,17 @@ log.add(user3);
 
 setInterval(() => {
   if (timeWindow) {
-    const li = document.createElement("li");
     const time = Date.now().toString();
-    li.appendChild(document.createTextNode(time));
-    timeWindow.appendChild(li);
-
+    appendListItem(timeWindow, time);
     log.setTime(time);
   }
 }, 2000);
 
 function updateLog(userLog: string) {
-  let li = document.createElement("li");
   const timeList = log.getTime();
   const recentTime = timeList.slice(-1)[0];
   const uniqueLog: string = `${recentTime} ${userLog}`;
-  li.appendChild(document.createTextNode(uniqueLog));
-  logUpdates?.appendChild(li);
-
+  appendListItem(logUpdates, uniqueLog);
   log.setState(uniqueLog); // Mutates subject state and triggers notify() → all observers update
 }
 

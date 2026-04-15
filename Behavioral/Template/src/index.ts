@@ -5,19 +5,16 @@ import { InfoLog } from "./models/InfoLog";
 import { TraceLog } from "./models/TraceLog";
 import { ErrorLog } from "./models/ErrorLog";
 import { logHelper } from "./models/logHelper";
+import { appendListItem } from "../../../shared/dom-utils";
 
 const applicationWindow = document?.querySelector(".application-run");
 let i = 0;
 
 function runApplication(i: number) {
   logHelper(new TraceLog(), "Application run"); // Trace marks the start of a run
-  let li = document.createElement("li");
-  li.appendChild(document.createTextNode(new Number(i).toString()));
-  logHelper(
-    new InfoLog(),
-    `Created Number Node & Created Number ${new Number(i).toString()} String`
-  );
-  applicationWindow?.appendChild(li);
+  const numStr = new Number(i).toString();
+  logHelper(new InfoLog(), `Created Number Node & Created Number ${numStr} String`);
+  appendListItem(applicationWindow, numStr);
   logHelper(new TraceLog(), "Application Finished"); // Trace marks the end of a run
 }
 

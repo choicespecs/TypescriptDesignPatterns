@@ -3,6 +3,7 @@
 
 import { TextTheme } from "./classes/text/TextTheme";
 import { ImageTheme } from "./classes/image/ImageTheme";
+import { appendListItem } from "../../../shared/dom-utils";
 
 const changeThemeButton = document.querySelector(".change-theme-button")!;
 const themeName = document.querySelector(".theme-name-part")!;
@@ -48,9 +49,7 @@ function resetVariables() {
 }
 
 function addAction(number: number, name: string) {
-  let li = document.createElement("li");
-  li.appendChild(document.createTextNode(`${number}. Added ${name}`));
-  actions?.appendChild(li);
+  appendListItem(actions, `${number}. Added ${name}`);
 }
 
 function removeButton(element: Element) {
