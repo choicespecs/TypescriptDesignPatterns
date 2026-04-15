@@ -1,66 +1,20 @@
-:root { --accent: #6366f1; }
+@import "/shared/base.css";
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  background: #0d0d12;
-  color: #e4e4ef;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+:root {
+  --badge-bg:   rgba(99,102,241,0.15);
+  --badge-cl:   #a5b4fc;
+  --badge-bd:   rgba(99,102,241,0.3);
+  --flow-bg:    rgba(99,102,241,0.04);
+  --node-bg:    rgba(99,102,241,0.08);
+  --node-bd:    rgba(99,102,241,0.2);
+  --node-cl:    #818cf8;
+  --node-hi-bg: rgba(99,102,241,0.2);
+  --node-hi-bd: rgba(99,102,241,0.5);
+  --node-hi-cl: #a5b4fc;
 }
 
-.pattern-header {
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.02);
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.pattern-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  width: fit-content;
-  background: rgba(99,102,241,0.15);
-  color: #a5b4fc;
-  border: 1px solid rgba(99,102,241,0.3);
-}
-
-.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
-.pattern-desc { font-size: 0.85rem; color: #9ca3af; }
-
-.pattern-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: rgba(99,102,241,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  flex-wrap: wrap;
-}
-
-.flow-node {
-  background: rgba(99,102,241,0.12);
-  border: 1px solid rgba(99,102,241,0.25);
-  border-radius: 8px;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #a5b4fc;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.flow-arrow { color: #374151; font-size: 1.1rem; }
+.flow-arrow { font-size: 1.1rem; }
+.flow-node { background: rgba(99,102,241,0.12); border-color: rgba(99,102,241,0.25); color: #a5b4fc; }
 
 .demo {
   flex: 1;

@@ -1,75 +1,17 @@
-:root { --accent: #10b981; }
+@import "/shared/base.css";
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  background: #0d0d12;
-  color: #e4e4ef;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+:root {
+  --badge-bg:   rgba(16,185,129,0.15);
+  --badge-cl:   #6ee7b7;
+  --badge-bd:   rgba(16,185,129,0.3);
+  --flow-bg:    rgba(16,185,129,0.04);
+  --node-bg:    rgba(16,185,129,0.08);
+  --node-bd:    rgba(16,185,129,0.2);
+  --node-cl:    #34d399;
+  --node-hi-bg: rgba(16,185,129,0.18);
+  --node-hi-bd: rgba(16,185,129,0.45);
+  --node-hi-cl: #6ee7b7;
 }
-
-/* ── Header ──────────────────────────────────────────────────────────────────── */
-
-.pattern-header {
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.02);
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.pattern-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  width: fit-content;
-  background: rgba(16,185,129,0.15);
-  color: #6ee7b7;
-  border: 1px solid rgba(16,185,129,0.3);
-}
-
-.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
-.pattern-desc  { font-size: 0.85rem; color: #9ca3af; }
-
-/* ── Flow strip ──────────────────────────────────────────────────────────────── */
-
-.pattern-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2rem;
-  background: rgba(16,185,129,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  flex-wrap: wrap;
-}
-
-.flow-node {
-  background: rgba(16,185,129,0.08);
-  border: 1px solid rgba(16,185,129,0.2);
-  border-radius: 8px;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #34d399;
-  text-align: center;
-  line-height: 1.5;
-}
-.flow-node.highlight {
-  background: rgba(16,185,129,0.18);
-  border-color: rgba(16,185,129,0.45);
-  color: #6ee7b7;
-}
-.flow-node span { font-size: 0.65rem; color: #6b7280; font-weight: 400; display: block; }
-.flow-arrow { color: #374151; font-size: 0.85rem; white-space: nowrap; }
 
 /* ── Demo ────────────────────────────────────────────────────────────────────── */
 
