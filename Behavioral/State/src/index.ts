@@ -1,3 +1,6 @@
+// State Pattern — Entry point / client
+// Creates an Account (Context) and wires DOM deposit/withdraw forms to it.
+
 import { Account } from "./models/Account";
 
 const account = new Account("Sample User");

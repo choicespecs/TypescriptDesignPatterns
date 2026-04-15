@@ -1,5 +1,9 @@
+// Iterator Pattern — Entry point / client
+// Creates the LRUCache collection and an LRUconcreteIterator, then wires DOM controls.
+
 import { LRUCache } from "./models/LRUCache";
-import { LRUIterator, LRUconcreteIterator } from "./models/LRUIterator";
+import { LRUIterator } from "./interfaces/LRUIterator";
+import { LRUconcreteIterator } from "./models/LRUIterator";
 
 const displayLinkedList = <HTMLElement>document.querySelector(".linked-list");
 const linkedListScreen = <HTMLElement>(
@@ -32,16 +36,16 @@ lruCapacityForm?.addEventListener("submit", (e) => {
   const elements = lruCapacityForm.elements!;
   const c = parseInt((elements[0] as HTMLFormElement).value);
   cache = new LRUCache(c);
-  iterator = new LRUconcreteIterator(cache);
+  iterator = new LRUconcreteIterator(cache); // Bind the iterator to the newly created collection
   if (c > 6) {
     displayLinkedList!.style.width = `${100 * c}px`;
   }
   lruCapacityForm.style.display = "none";
-  linkedListScreen.style.display = "block";
+  linkedListScreen.style.display = "flex";
   linkedListScreenTitle.innerHTML = `LRU Cache Size: ${c}`;
   linkedListButtons.style.display = "flex";
-  lruAddForm.style.display = "block";
-  lruGetForm.style.display = "block";
+  lruAddForm.style.display = "flex";
+  lruGetForm.style.display = "flex";
 });
 
 lruAddForm?.addEventListener("submit", (e) => {
@@ -56,22 +60,21 @@ lruAddForm?.addEventListener("submit", (e) => {
   lruKey.value = "";
   lruValue.value = "";
   const lru = iterator!.lru();
-  LRUTitle!.innerHTML = `Current LRU: ${lru!.key}:${lru!.value}`;
+  LRUTitle!.innerHTML = `${lru!.key}:${lru!.value}`;
   const mru = iterator!.mru();
-  MRUTitle!.innerHTML = `Current MRU: ${mru!.key}:${mru!.value}`;
+  MRUTitle!.innerHTML = `${mru!.key}:${mru!.value}`;
 });
 
 lruGetForm?.addEventListener("submit", (e) => {
   e.preventDefault();
   const elements = lruGetForm.elements!;
   const key = (elements[0] as HTMLFormElement).value;
-  console.log(key);
   const value = cache!.get(key);
-  getLRUTitle!.innerHTML = `Get ${key}:${value}`;
+  getLRUTitle!.innerHTML = `${key}:${value}`;
   const lru = iterator!.lru();
-  LRUTitle!.innerHTML = `Current LRU: ${lru!.key}:${lru!.value}`;
+  LRUTitle!.innerHTML = `${lru!.key}:${lru!.value}`;
   const mru = iterator!.mru();
-  MRUTitle!.innerHTML = `Current MRU: ${mru!.key}:${mru!.value}`;
+  MRUTitle!.innerHTML = `${mru!.key}:${mru!.value}`;
   lruGetKey.value = "";
 });
 
@@ -79,13 +82,14 @@ const printButton = document.querySelector(".print");
 
 printButton!.addEventListener("click", () => {
   displayLinkedList!.innerHTML = "";
-  iterator!.reset();
+  iterator!.reset(); // Rewind to MRU before each visual render
   let node = iterator!.getCurrent();
+  // Use the iterator interface to walk every node without touching LRULinkedList directly
   while (iterator!.hasNext()) {
     const n = document.createElement("div");
     n.classList.add("box");
     n.innerHTML = `${node!.key}:${node!.value}`;
     displayLinkedList!.appendChild(n);
-    node = iterator!.next();
+    node = iterator!.next(); // Advance toward LRU
   }
 });

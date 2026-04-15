@@ -1,6 +1,13 @@
+// Chain of Responsibility Pattern — Concrete Handler (email format)
+// Validates the email field structure; sits after RequiredFieldHandler("email") in the chain.
+
 import BaseHandler from "../interfaces/BaseHandler";
 import ValidationInput from "../interfaces/ValidationInput";
 
+/**
+ * Concrete Handler that checks the email field is present and matches
+ * the standard user@domain.tld pattern.
+ */
 class EmailFormatHandler extends BaseHandler {
   handleValidation(inputValue: ValidationInput): boolean {
     const fieldValue = inputValue.email;
@@ -11,11 +18,11 @@ class EmailFormatHandler extends BaseHandler {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(inputValue.email)) {
       console.log("Invalid email format");
-      return false;
+      return false; // Stop the chain; email is malformed
     }
 
     if (this.nextHandler) {
-      return this.nextHandler.handleValidation(inputValue);
+      return this.nextHandler.handleValidation(inputValue); // Delegate to next handler
     }
     return true;
   }

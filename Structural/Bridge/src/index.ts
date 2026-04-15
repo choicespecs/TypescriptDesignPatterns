@@ -1,3 +1,7 @@
+// Bridge Pattern — Entry point / client
+// Lets the user independently select a notification type and display type,
+// then assembles them into a NotificationBridge at click time.
+
 import { SampleNotification } from "./interfaces/SampleNotification";
 import { NotificationDisplay } from "./interfaces/NotificationDisplay";
 import { EmailNotification } from "./models/EmailNotificvation";
@@ -6,6 +10,7 @@ import { ToastNotificationDisplay } from "./models/ToastNotificationDisplay";
 import { ModalNotificationDisplay } from "./models/ModalNotificationDisplay";
 import { NotificationBridge } from "./models/NotificationBridge";
 
+// These hold the current Abstraction and Implementation selections independently
 let notificationType: SampleNotification | null = null;
 let displayingType: NotificationDisplay | null = null;
 
@@ -14,6 +19,7 @@ const smsButton = document.getElementById("sms-button")!;
 const notifyWindow: HTMLElement = document.querySelector(".notify-window")!;
 const notifyType = document.getElementById("notification-type")!;
 
+// Selecting the Abstraction side — independent of the display choice
 emailButton.addEventListener("click", function () {
   notifyWindow.style.display = "none";
   notifyType.innerHTML = ": Email";
@@ -33,6 +39,7 @@ const toastButton = document.getElementById("toast-button")!;
 const modalButton = document.getElementById("modal-button")!;
 const displayType = document.getElementById("display-type")!;
 
+// Selecting the Implementation side — independent of the notification type choice
 toastButton.addEventListener("click", function () {
   notifyDisplayWindow.style.display = "none";
   displayType.innerHTML = ": Toast";
@@ -63,10 +70,11 @@ window.addEventListener("click", function (event) {
 
 const sendAndDisplayButton = document.getElementById("create-message");
 
-let sendAndDisplayClicked = false; // Keep track of whether sendAndDisplayButton has been clicked
+let sendAndDisplayClicked = false;
 
 sendAndDisplayButton?.addEventListener("click", function () {
   if (notificationType && displayingType) {
+    // Bridge is assembled at runtime by composing the chosen Abstraction + Implementation
     const notificationBridge = new NotificationBridge(
       notificationType,
       displayingType
@@ -75,7 +83,7 @@ sendAndDisplayButton?.addEventListener("click", function () {
       "message"
     )! as HTMLInputElement;
     const message = messageInput.value;
-    notificationBridge.sendAndDisplay(message);
+    notificationBridge.sendAndDisplay(message); // Triggers both sides of the bridge
   }
   sendAndDisplayClicked = true;
   const resetButton = document.getElementById("reset");
@@ -89,29 +97,24 @@ resetButton?.addEventListener("click", function () {
   notificationType = null;
   displayingType = null;
 
-  // Reset the notification type display
   const notifyType = document.getElementById("notification-type");
   if (notifyType) {
     notifyType.innerHTML = "";
   }
 
-  // Reset the display type display
   const displayType = document.getElementById("display-type");
   if (displayType) {
     displayType.innerHTML = "";
   }
 
-  // Show notifyWindow and notifyDisplayWindow again
   if (notifyWindow) {
-    notifyWindow.style.display = "block";
+    notifyWindow.style.display = "flex";
   }
   if (notifyDisplayWindow) {
-    notifyDisplayWindow.style.display = "block";
+    notifyDisplayWindow.style.display = "flex";
   }
 
-  // Hide the reset button again
   resetButton.style.display = "none";
 
-  // Reset sendAndDisplayClicked flag
   sendAndDisplayClicked = false;
 });

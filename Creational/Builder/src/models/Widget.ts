@@ -1,3 +1,12 @@
+// Builder Pattern — Product
+// The complex object assembled by WidgetBuilder; render() produces the final HTML string.
+
+/**
+ * Product in the Builder pattern.
+ * Widget stores all configurable style and content properties.
+ * Clients never construct a Widget directly — they always use WidgetBuilder to set
+ * each property and call build() to receive the completed product.
+ */
 export class Widget {
   private title: string;
   private content: string;
@@ -35,6 +44,7 @@ export class Widget {
     this.font = font;
   }
 
+  /** Converts all accumulated properties into an inline-styled HTML widget string. */
   render(): string {
     return `<div class="widget" style="background-color:${this.widget_color};text-align:${this.text_align};height:${this.height}px;color:${this.text_color};font-family:${this.font}">
                     <h2>${this.title}</h2>

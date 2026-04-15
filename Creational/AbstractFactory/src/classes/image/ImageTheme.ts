@@ -1,8 +1,16 @@
+// Abstract Factory Pattern — ConcreteFactory (image theme family)
+// Creates coordinated ImageNavigation, ImageWindow, and ImageContent products.
+
 import { DisplayThemeGenerator } from "../../interfaces/DisplayThemeGenerator";
 import { ImageNavigation } from "./ImageNavigation";
 import { ImageContent } from "./ImageContent";
 import { ImageWindow } from "./ImageWindow";
 
+/**
+ * ConcreteFactory for the image-based UI theme.
+ * Produces the image product family; swapping this for TextTheme changes the
+ * entire UI to the text family without any changes to the client.
+ */
 export class ImageTheme implements DisplayThemeGenerator {
   private themeNav: HTMLElement;
   private themeWindow: HTMLElement;

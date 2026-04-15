@@ -1,63 +1,160 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+:root { --accent: #6366f1; }
 
-:root {
-  --color-one: #351431;
-  --color-two: #775253;
-  --color-three: #bdc696;
-  --color-four: #d1d3c4;
-  --color-five: #dfe0dc;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.window,
-.client-window {
-  width: 300px;
-  height: 300px;
-  margin-top: 5em;
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #0d0d12;
+  color: #e4e4ef;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+}
+
+.pattern-header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pattern-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  width: fit-content;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+
+.pattern-title { font-size: 1.4rem; font-weight: 700; color: #f1f1f8; }
+.pattern-desc { font-size: 0.85rem; color: #9ca3af; }
+
+.pattern-flow {
+  display: flex;
   align-items: center;
-  background-color: var(--color-five);
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: rgba(99,102,241,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
 }
 
-nav {
-  width: 100%;
-  height: 20px;
-  background-color: var(--color-three);
+.flow-node {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #818cf8;
+  text-align: center;
+  line-height: 1.5;
 }
-
-h3 {
-  background-color: white;
-  padding: 5px;
+.flow-node.highlight {
+  background: rgba(99,102,241,0.2);
+  border-color: rgba(99,102,241,0.5);
+  color: #a5b4fc;
 }
+.flow-node span { font-size: 0.65rem; color: #6b7280; font-weight: 400; display: block; }
+.flow-arrow { color: #374151; font-size: 0.85rem; white-space: nowrap; }
 
-/* observer.html Observer Example Styles */
-.server-application,
-.user-application {
-  height: 100vh;
-  width: 100vw;
+.app-wrapper { flex: 1; display: flex; flex-direction: column; }
+
+.server-application, .user-application {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
 }
 
 .server-application {
-  background-color: var(--color-two);
+  background: rgba(99,102,241,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
-.user-application {
-  background-color: var(--color-one);
+.user-application { background: rgba(0,0,0,0.15); }
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  margin-bottom: 1rem;
 }
 
 .window-holder {
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  gap: 10em;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.user-info {
-  margin-bottom: 2em;
+.window {
+  background: #16161f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  width: 240px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
+.win-header {
+  padding: 0.6rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+ul { list-style: none; padding: 0.75rem; }
+ul li {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  word-break: break-all;
+}
+
+.user-info { flex: 1; padding: 0 0 0.5rem 0; }
+.log-label {
+  display: block;
+  font-size: 0.68rem;
+  color: #4b5563;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 0.75rem 0.25rem;
+}
+
+.btn-observe {
+  margin: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.btn-observe:hover { background: rgba(99,102,241,0.25); }
+
+nav { display: none; }
+h3 { display: none; }
+h5 { display: none; }

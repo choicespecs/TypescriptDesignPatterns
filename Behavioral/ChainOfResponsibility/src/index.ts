@@ -1,20 +1,29 @@
+// Chain of Responsibility Pattern — Entry point / client
+// Wires all handlers into a chain and connects form submission to the head of that chain.
+
 import ValidationInput from "./interfaces/ValidationInput";
 import RequiredFieldHandler from "./models/RequiredFieldHandler";
 import EmailFormatHandler from "./models/EmailFormatHandler";
 import PasswordFormatHandler from "./models/PasswordFormatHandler";
 import UsernameFormatHandler from "./models/UsernameFormatHandler";
 
-const usernameValidationChain = new RequiredFieldHandler("username");
-usernameValidationChain.setNextHandler(new UsernameFormatHandler());
+// Instantiate each handler (one per validation rule)
+const usernameRequired = new RequiredFieldHandler("username");
+const usernameFormat = new UsernameFormatHandler();
+const emailRequired = new RequiredFieldHandler("email");
+const emailFormat = new EmailFormatHandler();
+const passwordRequired = new RequiredFieldHandler("password");
+const passwordFormat = new PasswordFormatHandler();
 
-const emailValidationChain = new RequiredFieldHandler("email");
-emailValidationChain.setNextHandler(new EmailFormatHandler());
+// Link handlers into a linear chain: username → email → password
+usernameRequired.setNextHandler(usernameFormat);
+usernameFormat.setNextHandler(emailRequired);
+emailRequired.setNextHandler(emailFormat);
+emailFormat.setNextHandler(passwordRequired);
+passwordRequired.setNextHandler(passwordFormat);
 
-const passwordValidationChain = new RequiredFieldHandler("password");
-passwordValidationChain.setNextHandler(new PasswordFormatHandler());
-
-usernameValidationChain.setNextHandler(emailValidationChain);
-emailValidationChain.setNextHandler(passwordValidationChain);
+// The chain is always entered at the first handler
+const usernameValidationChain = usernameRequired;
 
 const validationForm = document.getElementById("validationForm")!;
 
@@ -30,12 +39,15 @@ validationForm.addEventListener("submit", function (event) {
     password: passwordInput.value,
   };
 
+  // Kick off the chain from the head handler; result is true only if every handler passes
   const isFormValid = usernameValidationChain.handleValidation(inputValues);
+  const resultEl = document.getElementById("validation-result")!;
 
   if (isFormValid) {
-    // Submit the form or perform further actions
-    console.log("Form submitted successfully");
+    resultEl.textContent = "All fields valid — form submitted successfully";
+    resultEl.className = "validation-result success";
   } else {
-    console.log("Form validation failed");
+    resultEl.textContent = "Validation failed — check your inputs and try again";
+    resultEl.className = "validation-result error";
   }
 });

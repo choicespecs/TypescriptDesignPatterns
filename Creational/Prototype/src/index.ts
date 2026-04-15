@@ -1,12 +1,14 @@
+// Prototype Pattern — Entry point / client
+// Creates a base prototype and clones it to produce customised menu items.
+
 import { MenuItem } from "./models/MenuItem";
 
-// Client code
 const menuItems: MenuItem[] = [];
 
-// Create base menu prototype
+// One prototype instance acts as the template for all derived menu items
 const baseMenuItemPrototype = new MenuItem("Home", "home-icon", "#", true);
 
-// Clone base menu prototype to create menu items
+// Clone the prototype and override only what differs — no repeated constructor arguments
 const menuItem1 = baseMenuItemPrototype.clone();
 menuItem1.label = "About";
 menuItem1.link = "about.html";
@@ -15,10 +17,8 @@ const menuItem2 = baseMenuItemPrototype.clone();
 menuItem2.label = "Services";
 menuItem2.link = "services.html";
 
-// Add cloned menu items to menuItems array
 menuItems.push(menuItem1, menuItem2);
 
-// Render menu items
 const menuContainer = document.getElementById("menu-container");
 if (menuContainer) {
   menuItems.forEach((item) => {

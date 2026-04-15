@@ -1,3 +1,6 @@
+// Visitor Pattern — Entry point / client
+// Populates the DOM with employee info and wires buttons to the processSalary function.
+
 import { processSalary } from "./models/ProcessSalary";
 
 // Initialize employee information on page load

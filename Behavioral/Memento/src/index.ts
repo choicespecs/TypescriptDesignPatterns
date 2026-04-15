@@ -1,22 +1,22 @@
-// index.ts
+// Memento Pattern — Entry point / client
+// Wires the Originator (RichTextEditor) and Caretaker (UndoManager) to DOM events.
+
 import { RichTextEditor } from "./models/RichTextEditor";
 import { UndoManager } from "./models/UndoManager";
 
-// Initialize rich text editor and undo manager
-const editor = new RichTextEditor();
-const undoManager = new UndoManager();
+const editor = new RichTextEditor();     // Originator
+const undoManager = new UndoManager();   // Caretaker
 
-// Save initial state
+// Save the empty initial state so undo can revert all the way back to blank
 undoManager.saveState(editor);
 
-// Add event listener for content changes
+// Every keystroke creates a new snapshot, enabling fine-grained undo
 document.getElementById("editor")!.addEventListener("input", () => {
-  editor.updateContent();
-  undoManager.saveState(editor);
+  editor.updateContent();        // Sync DOM → Originator's internal state
+  undoManager.saveState(editor); // Caretaker snapshots the new state
 });
 
-// Add event listener for undo button
 const undoButton = document.getElementById("undoButton")!;
 undoButton.addEventListener("click", () => {
-  undoManager.undo(editor);
+  undoManager.undo(editor); // Caretaker pops the latest snapshot and restores the Originator
 });

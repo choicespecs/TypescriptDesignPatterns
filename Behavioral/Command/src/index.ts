@@ -1,4 +1,7 @@
-import { Data } from "./models/ApplicationDatabase";
+// Command Pattern — Entry point / client
+// Wires DOM form and undo button to the Invoker (DatabaseApplication).
+
+import { Data } from "./types/Data";
 import { ApplicationDatabase } from "./models/ApplicationDatabase";
 import { DatabaseApplication } from "./models/DatabaseApplication";
 
@@ -23,9 +26,9 @@ form?.addEventListener("submit", (e) => {
     username: (elements[0] as HTMLFormElement).value.toString(),
     information: (elements[1] as HTMLFormElement).value.toString(),
   };
-  databaseApp.insert(data);
+  databaseApp.insert(data); // Invoker creates InsertDatabase command, executes, and saves to history
 });
 
 undoButton?.addEventListener("click", () => {
-  databaseApp.undo();
+  databaseApp.undo(); // Invoker pops the last command and calls its undo()
 });

@@ -1,18 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flyweight Pattern Demo</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="./dist/flyweightPattern.js" defer></script>
-  </head>
-  <body>
-    <div id="catalog" class="product-catalog">
-      <h2>Product Catalog</h2>
-      <button id="add-product">Add New Product</button>
-      <div id="product-list"></div>
-    </div>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Flyweight Pattern</title><link rel="stylesheet" href="style.css"/><script defer="defer" src="dist/index.js"></script></head><body><header class="pattern-header"><span class="pattern-badge">Structural</span><h1 class="pattern-title">Flyweight Pattern</h1><p class="pattern-desc">Share intrinsic state among many objects — reducing memory when objects share common data</p></header><div class="pattern-flow"><div class="flow-node">Product<br/><span>id, name, price (extrinsic)</span></div><div class="flow-arrow">→ getImage(src) →</div><div class="flow-node highlight">ImageFactory<br/><span>cache: Map&lt;url, HTMLImageElement&gt;</span></div><div class="flow-arrow">→ returns</div><div class="flow-node">shared image<br/><span>intrinsic state</span></div></div><div id="catalog" class="product-catalog"><div class="catalog-header"><h2>Product Catalog</h2><button id="add-product" class="btn-primary">+ Add Product</button></div><div id="product-list"></div></div></body></html>
