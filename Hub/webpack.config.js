@@ -26,7 +26,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-      filename: "../index.html", // Output index.html in the root directory
+      filename: "../index.html",
     }),
   ],
   devServer: {
@@ -39,9 +39,16 @@ module.exports = {
         publicPath: "/",
         watch: true,
       },
+      {
+        // Serve all pattern directories from the repo root so iframe
+        // URLs like /Behavioral/ChainOfResponsibility/index.html resolve correctly
+        directory: path.join(__dirname, ".."),
+        publicPath: "/",
+        watch: false,
+      },
     ],
     compress: true,
-    port: 9000,
+    port: 9001,
     hot: true,
     open: true,
   },
