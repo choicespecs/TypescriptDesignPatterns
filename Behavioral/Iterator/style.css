@@ -178,9 +178,6 @@ input::placeholder { color: #374151; }
   min-width: 2.5rem;
 }
 
-.buttons-location {
-  display: none;
-  flex-direction: column;
-}
+.reset-cache { display: none; }
 
 nav { display: none; }
