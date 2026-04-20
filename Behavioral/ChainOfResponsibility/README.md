@@ -1,5 +1,7 @@
 # Chain Of Responsibility Pattern
 
+[Chain Of Responsibility Video](https://youtu.be/ytWSRGdu-ew?si=3hAPJKmlhy0ZoPDs)
+
 > Decouples sender and receiver by allowing multiple objects to handle a request, with each object either processing it or passing it to the next handler in the chain.
 
 The Chain of Responsibility design pattern is a behavioral pattern that allows multiple objects to handle a request without the sender needing to know which object will ultimately process it. In this pattern, each handler contains a reference to the next handler in the chain. When a request is made, it is passed along the chain until one of the handlers handles it or until the end of the chain is reached. This promotes loose coupling between senders and receivers, as any handler can be added, removed, or reordered without affecting the client code. Typically, the Chain of Responsibility is used when there are multiple objects that can handle a request, and the specific handler is not known at compile-time. This pattern is often seen in event handling systems, middleware components, and logging frameworks where the processing of a request involves several steps or stages, and any one of them might handle the request.
