@@ -17,6 +17,6 @@ export class DeleteDatabase implements Command {
   }
 
   undo() {
-    this.database.insert(this.data); // Reverse by re-inserting the deleted record
+    this.database.insert(this.data, true); // isUndo=true: re-add row and pop log entry
   }
 }
