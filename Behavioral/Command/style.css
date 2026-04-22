@@ -45,7 +45,7 @@
 
 .db-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr auto;
   flex: 1;
 }
 
@@ -146,6 +146,26 @@ input::placeholder { color: #374151; }
   letter-spacing: 0.06em;
   margin-bottom: 0.6rem;
 }
+.delete-list li {
+  background: transparent;
+  padding: 0.2rem 0.6rem;
+}
+
+.btn-delete {
+  background: rgba(239,68,68,0.1);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.btn-delete:hover { background: rgba(239,68,68,0.22); }
+
+.db-col--actions { min-width: 90px; }
+
 .actions li {
   font-size: 0.8rem;
   color: #9ca3af;
@@ -154,4 +174,10 @@ input::placeholder { color: #374151; }
   background: rgba(99,102,241,0.05);
   border-radius: 0 6px 6px 0;
   margin-bottom: 0.3rem;
+}
+
+.actions li.action-delete {
+  border-left-color: rgba(239,68,68,0.4);
+  background: rgba(239,68,68,0.05);
+  color: #fca5a5;
 }
