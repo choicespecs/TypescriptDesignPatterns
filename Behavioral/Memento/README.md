@@ -1,5 +1,7 @@
 # Memento Pattern
 
+[Memento Video](https://youtu.be/1ypbPKVdj6o?si=Xx4g6_Lu9KKmLZHP)
+
 > Allows objects to capture their internal state without exposing their structure, facilitating later restoration of that state, commonly used for implementing undo mechanisms or checkpoints in software applications.
 
 The Memento pattern is a behavioral design pattern that enables the capture and restoration of an object's internal state without exposing its implementation details. It consists of three main components: the Originator, the Memento, and the Caretaker.
