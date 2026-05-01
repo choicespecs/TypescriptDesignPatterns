@@ -2,7 +2,7 @@
 
 > One-to-many dependency so when one object changes state all dependents are notified.
 
-[Observer Pattern Video](https://youtu.be/L7Z0OSQAUZc)
+[Observer Pattern Video](https://youtu.be/OUqDtJ4lLPs?si=d7RR2In7-lC5auTo)
 
 This pattern focuses on two objects. One object may change it's _state_ while another object may want to know the state of the first object or want to know whenever the first object changes state.
 
