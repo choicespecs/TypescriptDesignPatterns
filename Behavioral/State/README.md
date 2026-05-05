@@ -1,5 +1,8 @@
 # State Pattern
 
+[State Video](https://youtu.be/0MlBRHd6FC4?si=PoBNC3jba3AUn8fY)
+
+
 > Allows an object to alter its behavior when its internal state changes. The object will appear to change its class.
 
 State design pattern allows a context (an object that may have a certain state) to behave differently at runtime allowing different behavior as needed. Utilizing states or shifting complex, multipart conditionals into their own classes separates different behaviors by an object's internal state. This can help design complex relationships and applications with parts that can transition or change dynamically. This could be used for example in a TCP connection which may change it's state from listening to closed or could be the use of a UI front-end which may change it's state depending on the events or actions that may occur within an application.
