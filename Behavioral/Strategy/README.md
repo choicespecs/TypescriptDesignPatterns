@@ -2,7 +2,7 @@
 
 > Defines a family of algorithms, encapsulate each one, and make them interchangable.
 
-[Strategy Pattern Video](https://youtu.be/KGcw4Lq_p5k)
+[Strategy Pattern Video](https://youtu.be/MU0LHRm6078?si=ELIQLBXtGux2T-9b)
 
 Defines a "family of algorithms". It encapsulates each one so they can be used interchangably. For example, if you had three algorithms A, B, C the _Strategy_ pattern allows you to interchange between the three algorithms without any issues.
 

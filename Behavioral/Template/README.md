@@ -1,6 +1,6 @@
 # Template Method Pattern
 
-[Template Pattern Video](https://youtu.be/3b0uOjYbMOw)
+[Template Pattern Video](https://youtu.be/O8p_qZwt07E?si=9JX3XSzplTHR8poe)
 
 > Uses a "skeleton" of an algorithm in an operation, allow subclasses to redefine certain steps of an algorithm without changing the algorithm's structure.
 
