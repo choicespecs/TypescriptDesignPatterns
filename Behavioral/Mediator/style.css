@@ -19,10 +19,11 @@
 .demo {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 2rem;
   gap: 1.5rem;
+  overflow-y: auto;
 }
 
 .chat-window {
@@ -127,6 +128,7 @@ input::placeholder { color: #374151; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  align-self: center;
 }
 
 .mediator-box {
