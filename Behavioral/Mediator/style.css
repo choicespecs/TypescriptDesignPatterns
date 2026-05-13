@@ -99,6 +99,7 @@ input {
   padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
   flex: 1;
+  min-width: 0;
   outline: none;
   transition: border-color 0.2s;
   font-family: inherit;
