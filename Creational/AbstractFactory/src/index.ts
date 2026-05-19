@@ -112,6 +112,7 @@ function resetNavigation() {
 
 function resetContent() {
   themeContent.style.padding = "0";
+  themeContent.style.color = "";
   themeContent.innerHTML = "";
 }
 

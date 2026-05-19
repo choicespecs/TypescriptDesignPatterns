@@ -16,6 +16,7 @@ export class TextContent implements DisplayContent {
   }
   display() {
     this.themeContent.style.padding = "2em";
+    this.themeContent.style.color = "#2d1a1e";
     this.themeContent.innerHTML = `<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, at vero. Totam facere error ducimus suscipit sint, ea, alias possimus rerum expedita, dolor perspiciatis sapiente maiores vel quis velit facilis?<p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, at vero. Totam facere error ducimus suscipit sint, ea, alias possimus rerum expedita, dolor perspiciatis sapiente maiores vel quis velit facilis?<p>`;
   }
