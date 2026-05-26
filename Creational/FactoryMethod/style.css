@@ -14,21 +14,27 @@
   --node-hi-cl: #6ee7b7;
 }
 
-.app-wrapper { flex: 1; display: flex; flex-direction: column; overflow: auto; }
-
-.network-section {
+.app-wrapper {
+  flex: 1;
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  justify-content: center;
+  overflow: auto;
+  min-height: 0;
+}
+
+.network-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
 }
 
 .display-section {
-  padding: 1.5rem 2rem;
+  flex: 1;
   display: flex;
-  justify-content: center;
+  min-width: 0;
 }
 
 .card {
@@ -40,9 +46,9 @@
   flex-direction: column;
 }
 
-.client { width: 340px; }
-.server { width: 220px; }
-.user-screen { width: 100%; max-width: 760px; }
+.client { width: 300px; }
+.server { width: 300px; }
+.user-screen { flex: 1; }
 
 .net-panel-header {
   display: flex;
