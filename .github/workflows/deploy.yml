@@ -52,6 +52,7 @@ jobs:
       #   _site/<Category>/<Pattern>/index.html
       #   _site/<Category>/<Pattern>/style.css   (or styles.css for Prototype)
       #   _site/<Category>/<Pattern>/dist/index.js
+      #   _site/<Category>/<Pattern>/*.html      ← extra static pages (e.g. about.html, services.html)
       #   _site/<Category>/<Pattern>/images/     ← static assets where present
       - name: Assemble site
         run: |
@@ -77,6 +78,14 @@ jobs:
             # style.css (all patterns) or styles.css (Prototype)
             [ -f "${dir}style.css" ]  && cp "${dir}style.css"  "_site/${dir}style.css"
             [ -f "${dir}styles.css" ] && cp "${dir}styles.css" "_site/${dir}styles.css"
+
+            # Extra static HTML pages (e.g. about.html, services.html for Prototype)
+            for f in "${dir}"*.html; do
+              [ -f "$f" ] || continue
+              fname=$(basename "$f")
+              [ "$fname" = "index.html" ] && continue
+              cp "$f" "_site/${dir}${fname}"
+            done
 
             # Static image assets (e.g. Flyweight product images)
             if [ -d "${dir}images" ]; then
